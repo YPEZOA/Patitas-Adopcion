@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/Glegoo-Bold.ttf",
+      "sha1": "68eaa8ea3edff45c7710341f8c8f6784c58df2a5"
+    },
+    {
+      "path": "assets/fonts/Glegoo-Regular.ttf",
+      "sha1": "85cb19c0a38cf24ee845589078968ed97aab8a17"
+    },
+    {
+      "path": "assets/fonts/Quicksand-Bold.ttf",
+      "sha1": "07ca4486c80653a7f3abc18145c2f251d5c9989b"
+    },
+    {
+      "path": "assets/fonts/Quicksand-Regular.ttf",
+      "sha1": "ba6e4d47926d643a8a4b509b193b3a87c3ea385d"
+    }
+  ]
+}

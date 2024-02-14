@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* HuachitosAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* HuachitosAppTests.m */; };
+		0B4BC7B6F061435C9D533E6C /* Quicksand-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0C246DAE553404FBC3FEB75 /* Quicksand-Bold.ttf */; };
 		0C80B921A6F3F58F76C31292 /* libPods-HuachitosApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-HuachitosApp.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		192AF6CB063A437D94B0DDA8 /* Quicksand-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 29580E0BA63A4848BFD6595D /* Quicksand-Regular.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-HuachitosApp-HuachitosAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-HuachitosApp-HuachitosAppTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		A97C1EA81DAE4ED4A6DF8335 /* Glegoo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E7CD097C3B6B4031BE48C241 /* Glegoo-Regular.ttf */; };
+		C1EE1B652B7687AC00E2D167 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = C1EE1B642B7687AC00E2D167 /* Fonts */; };
+		EF5FDA5EC38144AA94E2B2BD /* Glegoo-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6B597193F38543F5A2187BFA /* Glegoo-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,12 +42,17 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = HuachitosApp/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = HuachitosApp/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-HuachitosApp-HuachitosAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuachitosApp-HuachitosAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		29580E0BA63A4848BFD6595D /* Quicksand-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Regular.ttf"; path = "../assets/fonts/Quicksand-Regular.ttf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-HuachitosApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuachitosApp.debug.xcconfig"; path = "Target Support Files/Pods-HuachitosApp/Pods-HuachitosApp.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-HuachitosApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuachitosApp.release.xcconfig"; path = "Target Support Files/Pods-HuachitosApp/Pods-HuachitosApp.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-HuachitosApp-HuachitosAppTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuachitosApp-HuachitosAppTests.debug.xcconfig"; path = "Target Support Files/Pods-HuachitosApp-HuachitosAppTests/Pods-HuachitosApp-HuachitosAppTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-HuachitosApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HuachitosApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B597193F38543F5A2187BFA /* Glegoo-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Glegoo-Bold.ttf"; path = "../assets/fonts/Glegoo-Bold.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = HuachitosApp/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-HuachitosApp-HuachitosAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HuachitosApp-HuachitosAppTests.release.xcconfig"; path = "Target Support Files/Pods-HuachitosApp-HuachitosAppTests/Pods-HuachitosApp-HuachitosAppTests.release.xcconfig"; sourceTree = "<group>"; };
+		C1EE1B642B7687AC00E2D167 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
+		D0C246DAE553404FBC3FEB75 /* Quicksand-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Quicksand-Bold.ttf"; path = "../assets/fonts/Quicksand-Bold.ttf"; sourceTree = "<group>"; };
+		E7CD097C3B6B4031BE48C241 /* Glegoo-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Glegoo-Regular.ttf"; path = "../assets/fonts/Glegoo-Regular.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -86,6 +96,7 @@
 		13B07FAE1A68108700A75B9A /* HuachitosApp */ = {
 			isa = PBXGroup;
 			children = (
+				C1EE1B642B7687AC00E2D167 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
@@ -106,6 +117,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		516E97A8E2594F55B566B125 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6B597193F38543F5A2187BFA /* Glegoo-Bold.ttf */,
+				E7CD097C3B6B4031BE48C241 /* Glegoo-Regular.ttf */,
+				D0C246DAE553404FBC3FEB75 /* Quicksand-Bold.ttf */,
+				29580E0BA63A4848BFD6595D /* Quicksand-Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +145,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				516E97A8E2594F55B566B125 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -241,8 +265,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1EE1B652B7687AC00E2D167 /* Fonts in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				EF5FDA5EC38144AA94E2B2BD /* Glegoo-Bold.ttf in Resources */,
+				A97C1EA81DAE4ED4A6DF8335 /* Glegoo-Regular.ttf in Resources */,
+				0B4BC7B6F061435C9D533E6C /* Quicksand-Bold.ttf in Resources */,
+				192AF6CB063A437D94B0DDA8 /* Quicksand-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

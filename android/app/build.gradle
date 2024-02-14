@@ -1,6 +1,7 @@
 apply plugin: "com.android.application"
 apply plugin: "org.jetbrains.kotlin.android"
 apply plugin: "com.facebook.react"
+apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
 
 /**
  * This is the configuration block to customize your React Native Android app.
@@ -77,7 +78,8 @@ android {
     namespace "com.huachitosapp"
     defaultConfig {
         applicationId "com.huachitosapp"
-        minSdkVersion rootProject.ext.minSdkVersion
+        minSdkVersion 21
+    multiDexEnabled true
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
