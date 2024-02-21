@@ -10,6 +10,8 @@ import Animated, {
 } from 'react-native-reanimated'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import { useNavigation } from '@react-navigation/native'
+import { TextInput } from 'react-native'
+import Filters from '../HomeScreen/components/Filter/Filters'
 
 const WelcomeScreen = () => {
   const rotate = useSharedValue(10)
@@ -39,7 +41,7 @@ const WelcomeScreen = () => {
           <Icon name="paw" size={40} />s
         </Text>
       </View>
-      <Animated.View entering={FadeInDown.springify().duration(1000)}>
+      <Animated.View entering={FadeInDown.springify().damping(8).duration(800)}>
         <TouchableOpacity
           style={St.nextStepButton}
           onPress={() => navigation.navigate('Home')}

@@ -1,9 +1,10 @@
-import React from 'react'
-import { View, Text, Image, Pressable } from 'react-native'
-import { animalStyles as St } from './styles'
+import React, { useContext } from 'react'
+import { View, Text, Image } from 'react-native'
 import Animated, { FadeInDown } from 'react-native-reanimated'
 import { AnimalProps } from '../../../../utils/models'
+import { animalStyles as St } from './styles'
 import Icon from 'react-native-vector-icons/Ionicons'
+import IconS from 'react-native-vector-icons/SimpleLineIcons'
 import colors from '../../../../UI/colors'
 
 interface Props {
@@ -12,54 +13,50 @@ interface Props {
 }
 
 const Animal = ({ data, index }: Props) => {
-  const { nombre, tipo, comuna, imagen } = data
-  const isEven = index % 2 == 0
-
-  const typeColors = (type: string) => {
-    if (type.length) {
-    }
-    const colorByType: any = {
-      Perro: 'brown',
-      Gato: 'green',
-    }
-    const color = colorByType[type]
-    return color
-  }
+  const { nombre, comuna, imagen, genero, region } = data
+  const isEven = index % 2 === 0
 
   return (
     <Animated.View
-      style={[
-        St.container,
-        {
-          paddingLeft: isEven ? 0 : 6,
-          paddingRight: isEven ? 6 : 0,
-        },
-      ]}
       entering={FadeInDown.delay(index * 100)
         .duration(500)
         .springify()
         .damping(12)}
     >
-      <Pressable style={St.box}>
-        <Image style={St.image} source={{ uri: imagen }} />
-        <View style={St.infoContainer}>
-          <View
-            style={[
-              St.typeBadge,
-              { backgroundColor: typeColors(tipo?.length ? tipo : '') },
-            ]}
-          >
-            <Text style={{ color: colors.white }}>{tipo}</Text>
-          </View>
+      <View style={St.box}>
+        <Image
+          style={[St.image, { height: index % 3 == 0 ? 230 : 300 }]}
+          source={{ uri: imagen }}
+        />
+        <View style={[St.infoContainer, { marginLeft: isEven ? 0 : 6 }]}>
           <View style={St.infoContent}>
-            <Text style={St.nameText}>{nombre}</Text>
+            <View style={St.nameSection}>
+              <Text style={St.nameText}>{nombre}</Text>
+              <View>
+                {genero === 'macho' ? (
+                  <IconS name="symbol-male" color={'#54B0DC'} size={15} />
+                ) : (
+                  <IconS name="symbol-female" color={'#F78B8B'} size={15} />
+                )}
+              </View>
+            </View>
             <View style={St.location}>
-              <Icon name="location-outline" size={20} />
-              <Text>{comuna}</Text>
+              <Icon
+                name="location-outline"
+                size={20}
+                color={colors.neutralText}
+              />
+              <Text
+                style={St.locationText}
+                ellipsizeMode="tail"
+                numberOfLines={1}
+              >
+                {comuna}, {region}
+              </Text>
             </View>
           </View>
         </View>
-      </Pressable>
+      </View>
     </Animated.View>
   )
 }

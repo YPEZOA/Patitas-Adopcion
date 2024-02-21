@@ -8,3 +8,14 @@ export const getAllAnimals = () => {
     console.error(error)
   }
 }
+
+export const getAnimalsByType = (type: string) => {
+  try {
+    const response = fetch(`${URI}/animales/tipo/${type}`).then(res =>
+      res.json()
+    )
+    return response
+  } catch (error) {
+    console.error(error)
+  }
+}

@@ -42,8 +42,8 @@ export const welcomeScreen = StyleSheet.create({
       height: 3,
     },
     shadowOpacity: 0.3,
-    shadowRadius: 1,
-    elevation: 10,
+    shadowRadius: 3,
+    elevation: 5,
   },
   nextStepButton: {
     backgroundColor: '#46c04e',

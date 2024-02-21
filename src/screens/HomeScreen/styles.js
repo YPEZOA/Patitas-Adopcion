@@ -3,27 +3,17 @@ import colors from '../../UI/colors'
 
 export const homeScreen = StyleSheet.create({
   containerMain: {
+    backgroundColor: colors.primary,
     flex: 1,
-    paddingTop: 50,
+    paddingTop: 40,
+  },
+  containerContent: {
     paddingHorizontal: 10,
-  },
-  scrollContainer: {
-    marginTop: 30,
-  },
-  inputContainer: {
+    flex: 1,
     marginTop: 20,
-    display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: 5,
-    backgroundColor: '#dcdcdc',
-    borderRadius: 100,
-  },
-  inputIcon: {
-    padding: 10,
-    borderRadius: 100,
-    backgroundColor: colors.white,
+    backgroundColor: '#ECEBEB',
+    borderTopLeftRadius: 32,
+    borderTopRightRadius: 32,
   },
   headerLogoContent: {
     display: 'flex',
@@ -31,14 +21,12 @@ export const homeScreen = StyleSheet.create({
     alignItems: 'center',
   },
   headerText: {
-    fontSize: 28,
+    fontSize: 32,
     fontFamily: 'Quicksand-Bold',
-    color: colors.primary,
+    color: colors.white,
   },
-  title: {
-    marginTop: 20,
-    fontSize: 25,
-    fontWeight: 'bold',
-    color: '#5e5e5e',
+  headerLogoSmallText: {
+    color: colors.white,
+    fontSize: 12,
   },
 })

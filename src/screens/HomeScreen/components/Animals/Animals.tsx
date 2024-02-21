@@ -1,56 +1,49 @@
-import React, { useEffect, useState } from 'react'
-import {
-  ActivityIndicator,
-  FlatList,
-  ImageBackground,
-  SafeAreaView,
-  ScrollView,
-  Text,
-  View,
-} from 'react-native'
-import { getAllAnimals } from '../../../../utils/helpers/http'
+import React, { useContext } from 'react'
+import { ActivityIndicator, Text, View } from 'react-native'
+import { HomeContext } from '../../context'
 import Animal from '../Animal/Animal'
+import MasonryList from '@react-native-seoul/masonry-list'
 import Animated, { FadeInDown } from 'react-native-reanimated'
+import { animalsStyles as St } from '../Animals/styles'
+import colors from '../../../../UI/colors'
 
 const Animals = () => {
-  const [animals, setAnimals] = useState([])
+  const { states } = useContext(HomeContext)
 
-  useEffect(() => {
-    async function fn() {
-      const animales = await getAllAnimals()
-      setAnimals(animales.data)
-    }
-    fn()
-  }, [])
-
-  const renderItem = ({ item, index }: any) => (
-    <Animal data={item} index={index} />
-  )
+  if (!states.allAnimals.length && !states.fetching)
+    return (
+      <Animated.View
+        entering={FadeInDown.springify().duration(1000).damping(20)}
+        style={St.loaderContainer}
+      >
+        <Text style={St.notRestultText}>No se encontraron resultados</Text>
+      </Animated.View>
+    )
 
   return (
-    <Animated.View
-      style={{ marginTop: 30 }}
-      entering={FadeInDown.duration(500).springify()}
-    >
-      <ImageBackground
-        style={{ flex: 1 }}
-        source={require('../../../../../assets/images/home-background.jpg')}
-      />
-      {!animals.length ? (
-        <ActivityIndicator size={'large'} style={{ marginTop: 30 }} />
+    <View style={St.container}>
+      {states.fetching ? (
+        <View style={St.loaderContainer}>
+          <ActivityIndicator color={colors.secondary} size="large" />
+        </View>
       ) : (
-        <FlatList
-          contentContainerStyle={{
-            paddingBottom: 80,
-            paddingTop: 20,
-          }}
-          showsVerticalScrollIndicator={false}
-          data={animals}
-          renderItem={renderItem}
-          numColumns={2}
-        />
+        <View style={{ flex: 1 }}>
+          <MasonryList
+            ListHeaderComponent={
+              <Text style={St.titleList}>Esperan por ti</Text>
+            }
+            refreshControl={false}
+            keyExtractor={item => item.id}
+            showsVerticalScrollIndicator={false}
+            data={states.allAnimals}
+            renderItem={({ item, i }: any) => <Animal data={item} index={i} />}
+            numColumns={2}
+            onEndReachedThreshold={0.1}
+            style={{ gap: 10 }}
+          />
+        </View>
       )}
-    </Animated.View>
+    </View>
   )
 }
 
