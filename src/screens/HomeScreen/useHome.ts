@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import { getAllAnimals, getAnimalsByType } from '../../services/animals'
 import { isFetching } from '../../utils/helpers/loader'
-import colors from '../../UI/colors'
 
 const useHome = () => {
   const [allAnimals, setAllAnimals] = useState([])

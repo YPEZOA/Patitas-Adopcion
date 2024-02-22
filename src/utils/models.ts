@@ -1,3 +1,5 @@
+import React from 'react'
+
 export type AnimalProps = {
   id: number
   nombre?: string
@@ -21,4 +23,9 @@ export type AnimalProps = {
 export interface LogoProps {
   width?: number
   height?: number
+}
+
+export interface CollapsiblePanelProps {
+  title: string
+  children: React.ReactNode
 }

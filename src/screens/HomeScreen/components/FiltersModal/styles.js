@@ -3,20 +3,19 @@ import colors from '../../../../UI/colors'
 
 export const filtersModal = StyleSheet.create({
   contentContainer: {
-    width: '100%',
-    height: 400,
-    paddingHorizontal: 30,
-    paddingVertical: 30,
-    alignItems: 'center',
+    flex: 1,
     position: 'absolute',
     bottom: 0,
+    width: '100%',
+    height: 500,
+    paddingHorizontal: 30,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,
     backgroundColor: colors.white,
   },
   headerContainer: {
+    marginTop: 20,
     width: '100%',
-    isplay: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -31,5 +30,17 @@ export const filtersModal = StyleSheet.create({
     fontFamily: 'Quicksand-Bold',
     textTransform: 'uppercase',
     color: colors.secondary,
+  },
+
+  filterSubmitContainer: {
+    alignItems: 'center',
+    backgroundColor: colors.primary,
+    borderRadius: 10,
+    padding: 12,
+  },
+  filterSubmitText: {
+    color: colors.white,
+    fontFamily: 'Quicksand-Bold',
+    textTransform: 'uppercase',
   },
 })

@@ -1,9 +1,10 @@
+import http from '../utils/helpers/http.helper'
+
 const URI = 'https://huachitos.cl/api'
 
 export const getAllAnimals = () => {
   try {
-    const response = fetch(`${URI}/animales`).then(res => res.json())
-    return response
+    return http.get(`${URI}/animales`)
   } catch (error) {
     console.error(error)
   }
@@ -11,10 +12,7 @@ export const getAllAnimals = () => {
 
 export const getAnimalsByType = (type: string) => {
   try {
-    const response = fetch(`${URI}/animales/tipo/${type}`).then(res =>
-      res.json()
-    )
-    return response
+    return http.get(`${URI}/animales/tipo/${type}`)
   } catch (error) {
     console.error(error)
   }
