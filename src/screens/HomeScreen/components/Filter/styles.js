@@ -28,6 +28,11 @@ export const filterStyles = StyleSheet.create({
     gap: 30,
     paddingHorizontal: 10,
   },
+  typeText: {
+    fontFamily: 'Quicksand-Bold',
+    fontSize: 13,
+    letterSpacing: -0.5,
+  },
   option: {
     padding: 15,
     borderRadius: 20,

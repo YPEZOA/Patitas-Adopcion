@@ -5,6 +5,8 @@ export const filtersModal = StyleSheet.create({
   contentContainer: {
     width: '100%',
     height: 400,
+    paddingHorizontal: 30,
+    paddingVertical: 30,
     alignItems: 'center',
     position: 'absolute',
     bottom: 0,
@@ -13,8 +15,21 @@ export const filtersModal = StyleSheet.create({
     backgroundColor: colors.white,
   },
   headerContainer: {
-    display: 'flex',
-    alignItems: 'flex-end',
-    justifyContent: 'flex-end',
+    width: '100%',
+    isplay: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  filterIconContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 10,
+  },
+  filterIconText: {
+    fontSize: 16,
+    fontFamily: 'Quicksand-Bold',
+    textTransform: 'uppercase',
+    color: colors.secondary,
   },
 })

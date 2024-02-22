@@ -17,3 +17,8 @@ export type AnimalProps = {
   comuna?: string
   url?: string
 }
+
+export interface LogoProps {
+  width?: number
+  height?: number
+}

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ScrollView, Text, TouchableOpacity, View } from 'react-native'
+import { Platform, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import { filterStyles as St } from './styles'
 import { HomeContext } from '../../context'
 import Animated, { FadeInDown } from 'react-native-reanimated'
@@ -26,67 +26,52 @@ const Filters = () => {
   const colorTextBySelectType = (type: string) =>
     typeSelectedEqualTo(type) ? colors.primary : colors.secondary
 
-  const typeSelectedEqualTo = (type: string) =>
-    states.animalTypeSelected === type
+  const typeSelectedEqualTo = (type: string) => states.animalTypeSelected === type
+
+  const enteringOS =
+    Platform.OS === 'android'
+      ? FadeInDown.springify()
+      : FadeInDown.springify().delay(100).duration(1000)
 
   const renderIconByType = (type: string) => {
-    switch (type) {
-      case 'Perro':
-        return <Dog color={colorIconSelected(type)} />
-      case 'Gato':
-        return <Cat color={colorIconSelected(type)} />
-      case 'Conejo':
-        return <Rabbit color={colorIconSelected(type)} />
-      case 'Roedor':
-        return <Cat color={colorIconSelected(type)} />
-      case 'Ave':
-        return <Bird color={colorIconSelected(type)} />
-
-      default:
-        break
+    const typeSelected: any = {
+      Perro: <Dog color={colorIconSelected(type)} />,
+      Gato: <Cat color={colorIconSelected(type)} />,
+      Conejo: <Rabbit color={colorIconSelected(type)} />,
+      Roedor: <Rabbit color={colorIconSelected(type)} />,
+      Ave: <Bird color={colorIconSelected(type)} />,
     }
+
+    return typeSelected[type]
   }
 
   return (
     <View style={St.filterContent}>
-      <ScrollView
-        showsHorizontalScrollIndicator={false}
-        horizontal
-        style={St.typeOptions}
-      >
+      <ScrollView showsHorizontalScrollIndicator={false} horizontal style={St.typeOptions}>
         <View style={St.typeOptionsContent}>
           {types.map((type: string) => (
-            <Animated.View
-              entering={FadeInDown.springify().delay(100).duration(1000)}
-              key={type}
-            >
+            <Animated.View entering={enteringOS} key={type}>
               <TouchableOpacity
                 disabled={states.animalTypeSelected === type || states.fetching}
                 onPress={() => handleTypeSelected(type)}
                 style={[
                   St.option,
                   {
-                    backgroundColor: typeSelectedEqualTo(type)
-                      ? colors.primary
-                      : colors.white,
+                    backgroundColor: typeSelectedEqualTo(type) ? colors.primary : colors.white,
                   },
                 ]}
               >
                 {renderIconByType(type)}
               </TouchableOpacity>
               <View style={{ alignItems: 'center' }}>
-                <Icon
-                  name="horizontal-rule"
-                  size={20}
-                  color={colorTextBySelectType(type)}
-                />
+                <Icon name="horizontal-rule" size={20} color={colorTextBySelectType(type)} />
                 <Text
-                  style={{
-                    color: colorTextBySelectType(type),
-                    fontFamily: 'Quicksand-Bold',
-                    fontSize: 13,
-                    letterSpacing: -0.5,
-                  }}
+                  style={[
+                    St.typeText,
+                    {
+                      color: colorTextBySelectType(type),
+                    },
+                  ]}
                 >
                   {type}
                 </Text>

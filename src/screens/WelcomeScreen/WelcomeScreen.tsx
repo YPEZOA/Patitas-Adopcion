@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, TouchableOpacity, ImageBackground, StatusBar, Image } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { welcomeScreen as St } from './styles'
 import Animated, {
   FadeInDown,
@@ -8,17 +9,17 @@ import Animated, {
   withRepeat,
   withSpring,
 } from 'react-native-reanimated'
-import Icon from 'react-native-vector-icons/FontAwesome'
-import { useNavigation } from '@react-navigation/native'
-import { TextInput } from 'react-native'
-import Filters from '../HomeScreen/components/Filter/Filters'
+import LogoBeta from '../../UI/Icons/LogoBeta'
+import LogoWithTag from '../../UI/Icons/LogoWithTag'
+import LinearGradient from 'react-native-linear-gradient'
+import colors from '../../UI/colors'
 
 const WelcomeScreen = () => {
-  const rotate = useSharedValue(10)
+  const rotate = useSharedValue(5)
   const navigation = useNavigation<any>()
   const animatedStyles = useAnimatedStyle(() => {
     return {
-      transform: [{ rotate: `${rotate.value * 2}deg` }],
+      transform: [{ rotate: `${rotate.value}deg` }],
     }
   })
 
@@ -27,29 +28,21 @@ const WelcomeScreen = () => {
   }, [])
 
   return (
-    <View style={St.container}>
-      <Animated.View style={animatedStyles}>
-        <Icon style={St.pawIcon} name="paw" size={40} color={'white'} />
-      </Animated.View>
-      <View style={St.containerMain}>
-        <Image
-          style={{ width: 150, height: 150, borderRadius: 200 }}
-          source={require('../../../assets/images/dog-cat.jpeg')}
-        />
-        <Text style={St.largeText}>
-          Huachit
-          <Icon name="paw" size={40} />s
-        </Text>
+    <ImageBackground source={require('../../../assets/images/back4.jpeg')} style={{ flex: 1 }}>
+      <View style={St.container}>
+        <Animated.View style={animatedStyles}>
+          <LogoBeta width={150} height={150} />
+        </Animated.View>
+        <View style={St.containerMain}>
+          <LogoWithTag width={300} height={100} />
+        </View>
+        <Animated.View entering={FadeInDown.springify().damping(8).duration(800)}>
+          <TouchableOpacity style={St.nextStepButton} onPress={() => navigation.navigate('Home')}>
+            <Text style={St.nextStepButtonText}>Encuentra animales</Text>
+          </TouchableOpacity>
+        </Animated.View>
       </View>
-      <Animated.View entering={FadeInDown.springify().damping(8).duration(800)}>
-        <TouchableOpacity
-          style={St.nextStepButton}
-          onPress={() => navigation.navigate('Home')}
-        >
-          <Text style={St.nextStepButtonText}>Encuentra animales</Text>
-        </TouchableOpacity>
-      </Animated.View>
-    </View>
+    </ImageBackground>
   )
 }
 export default WelcomeScreen

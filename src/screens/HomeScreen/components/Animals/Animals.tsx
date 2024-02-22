@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { ActivityIndicator, Text, View } from 'react-native'
+import { Text, View } from 'react-native'
 import { HomeContext } from '../../context'
 import Animal from '../Animal/Animal'
 import MasonryList from '@react-native-seoul/masonry-list'
 import Animated, { FadeInDown } from 'react-native-reanimated'
 import { animalsStyles as St } from '../Animals/styles'
-import colors from '../../../../UI/colors'
+import LottieView from 'lottie-react-native'
 
 const Animals = () => {
   const { states } = useContext(HomeContext)
@@ -24,14 +24,18 @@ const Animals = () => {
     <View style={St.container}>
       {states.fetching ? (
         <View style={St.loaderContainer}>
-          <ActivityIndicator color={colors.secondary} size="large" />
+          <LottieView
+            style={St.lottieLoading}
+            source={require('../../../../../assets/animations/loading.json')}
+            loop
+            autoPlay
+          />
+          <Text style={St.lottieText}>Cargando...</Text>
         </View>
       ) : (
         <View style={{ flex: 1 }}>
           <MasonryList
-            ListHeaderComponent={
-              <Text style={St.titleList}>Esperan por ti</Text>
-            }
+            ListHeaderComponent={<Text style={St.titleList}>Esperan por ti</Text>}
             refreshControl={false}
             keyExtractor={item => item.id}
             showsVerticalScrollIndicator={false}

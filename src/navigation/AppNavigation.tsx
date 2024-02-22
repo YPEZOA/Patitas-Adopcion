@@ -1,9 +1,8 @@
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { NavigationContainer } from '@react-navigation/native'
-import { TouchableOpacity } from 'react-native'
 import WelcomeScreen from '../screens/WelcomeScreen/WelcomeScreen'
-import HomeScreen from '../screens/HomeScreen/HomeScreen'
+import HomeScreen from '../screens/HomeScreen'
 
 const Stack = createNativeStackNavigator()
 

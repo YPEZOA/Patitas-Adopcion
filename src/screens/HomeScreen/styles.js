@@ -1,19 +1,28 @@
-import { StyleSheet } from 'react-native'
+import { Platform, StyleSheet } from 'react-native'
 import colors from '../../UI/colors'
 
+const paddingByPlatform = Platform.OS === 'android' ? 0 : 40
 export const homeScreen = StyleSheet.create({
   containerMain: {
     backgroundColor: colors.primary,
     flex: 1,
-    paddingTop: 40,
+    paddingTop: paddingByPlatform,
   },
   containerContent: {
     paddingHorizontal: 10,
     flex: 1,
-    marginTop: 20,
+    marginTop: 10,
     backgroundColor: '#ECEBEB',
     borderTopLeftRadius: 32,
     borderTopRightRadius: 32,
+  },
+  headerContainer: {
+    marginTop: 20,
+    marginHorizontal: 20,
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   headerLogoContent: {
     display: 'flex',

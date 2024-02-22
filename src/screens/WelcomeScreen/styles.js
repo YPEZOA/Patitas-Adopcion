@@ -3,10 +3,11 @@ import colors from '../../UI/colors'
 
 export const welcomeScreen = StyleSheet.create({
   container: {
+    width: '100%',
     flex: 1,
-    backgroundColor: '#00946b',
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    paddingVertical: 40,
   },
   containerMain: {
     display: 'flex',
@@ -21,46 +22,22 @@ export const welcomeScreen = StyleSheet.create({
     fontSize: 52,
     color: colors.white,
   },
-  iconContainer: {
-    marginTop: 20,
-    padding: 7,
-    backgroundColor: '#f2f2f2',
-    borderRadius: 100,
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 2,
-      height: 3,
-    },
-    shadowOpacity: 0.14,
-    shadowRadius: 3,
-    elevation: 10,
-  },
-  pawIcon: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 2,
-      height: 3,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 5,
-  },
   nextStepButton: {
-    backgroundColor: '#46c04e',
-    borderRadius: 100,
-    paddingHorizontal: 50,
+    backgroundColor: colors.primary,
+    paddingHorizontal: 70,
     paddingVertical: 20,
+    borderRadius: 10,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
     },
     shadowOpacity: 0.2,
-    elevation: 4,
     shadowRadius: 5,
   },
   nextStepButtonText: {
     fontSize: 17,
     color: colors.white,
+    fontFamily: 'Quicksand-Bold',
   },
 })

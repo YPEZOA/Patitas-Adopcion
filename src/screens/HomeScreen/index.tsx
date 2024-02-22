@@ -1,41 +1,26 @@
 import React from 'react'
-import { StatusBar, Text, TouchableOpacity, View } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 import { homeScreen as St } from './styles'
 import { HomeContext } from './context'
 import useHome from './useHome'
 import Animals from './components/Animals/Animals'
-import Icon from 'react-native-vector-icons/FontAwesome'
 import IconF from 'react-native-vector-icons/Ionicons'
 import Filters from './components/Filter/Filters'
 import FiltersModal from './components/FiltersModal/FiltersModal'
 import colors from '../../UI/colors'
+import LightLogoText from '../../UI/Icons/LogoWithTagLight'
+import { StatusBar } from 'react-native'
 
 const HomeScreen = () => {
   const { states, actions, setters } = useHome()
 
   return (
     <HomeContext.Provider value={{ states, actions, setters }}>
+      <StatusBar backgroundColor={colors.primary} />
       <View style={St.containerMain}>
-        <StatusBar barStyle={'light-content'} />
-
         {/* Header */}
-        <View
-          style={{
-            marginTop: 20,
-            marginHorizontal: 30,
-            display: 'flex',
-            flexDirection: 'row',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-          }}
-        >
-          <View style={St.headerLogoContent}>
-            <Text style={St.headerText}>
-              Huachit
-              <Icon name="paw" size={20} />s
-            </Text>
-            <Text style={St.headerLogoSmallText}>Encuentra y da familia</Text>
-          </View>
+        <View style={St.headerContainer}>
+          <LightLogoText width={160} height={70} />
           <TouchableOpacity
             onPress={() => setters.setShowFiltersModal(true)}
             style={{
@@ -47,9 +32,7 @@ const HomeScreen = () => {
             <IconF name="filter" size={22} color={colors.secondary} />
           </TouchableOpacity>
         </View>
-
         {/* Filter */}
-
         <View style={St.containerContent}>
           <Filters />
           {/* Animals list */}
