@@ -28,5 +28,4 @@ export const animalsStyles = StyleSheet.create({
     width: 120,
     height: 120,
   },
-  lottieText: { fontSize: 16, color: colors.neutralText },
 })

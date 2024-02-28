@@ -7,11 +7,11 @@ import colors from '../../UI/colors'
 import Collapsible from 'react-native-collapsible'
 import { CollapsiblePanelProps } from '../../utils/models'
 
-const CollapsePanel = ({ title, children }: CollapsiblePanelProps) => {
+const CollapsePanel = ({ title, children, ...props }: CollapsiblePanelProps) => {
   const [collapsed, setCollapsed] = useState(true)
 
   return (
-    <View style={{ marginVertical: 10 }}>
+    <View>
       <Pressable
         style={[
           St.pressCollapsable,
@@ -22,7 +22,7 @@ const CollapsePanel = ({ title, children }: CollapsiblePanelProps) => {
         ]}
         onPress={() => setCollapsed(!collapsed)}
       >
-        <View style={St.pressCollapsableHeader}>
+        <View style={[St.pressCollapsableHeader, { paddingHorizontal: !collapsed ? 10 : 0 }]}>
           <Text
             style={[
               St.pressCollapsableHeaderText,

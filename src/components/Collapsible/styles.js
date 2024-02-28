@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native'
 export const collapsible = StyleSheet.create({
   pressCollapsable: {
     marginTop: 10,
-    paddingHorizontal: 10,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     borderColor: '#dcdcdc',
@@ -20,8 +19,10 @@ export const collapsible = StyleSheet.create({
     fontSize: 16,
   },
   collapsible: {
+    maxHeight: 140,
     backgroundColor: '#F4F4F4',
-    padding: 20,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },

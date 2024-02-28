@@ -30,7 +30,6 @@ const Animals = () => {
             loop
             autoPlay
           />
-          <Text style={St.lottieText}>Cargando...</Text>
         </View>
       ) : (
         <View style={{ flex: 1 }}>

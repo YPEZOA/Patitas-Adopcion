@@ -1,46 +1,83 @@
-import React, { useContext, useState } from 'react'
-import { View, Text, TouchableOpacity, Pressable, ScrollView } from 'react-native'
+import React, { useContext } from 'react'
+import { View, Text, TouchableOpacity, Pressable } from 'react-native'
 import { HomeContext } from '../../context'
+import ReactNativeModal from 'react-native-modal'
+import CollapsePanel from '../../../../components/Collapsible/Collapsible'
+import Selectable from '../../../../components/Selectable/Selectable'
+import { regions } from '../../../../config/data'
 import { filtersModal as St } from './styles'
 import IconF from 'react-native-vector-icons/Feather'
-import IconO from 'react-native-vector-icons/Octicons'
+import IconI from 'react-native-vector-icons/Ionicons'
 import colors from '../../../../UI/colors'
-import ReactNativeModal from 'react-native-modal'
-import Collapsible from 'react-native-collapsible'
-import CollapsePanel from '../../../../components/Collapsible/Collapsible'
 
 const FiltersModal = () => {
   const { states, setters } = useContext(HomeContext)
-  const [collapsed, setCollapsed] = useState(true)
+  const { state } = states.filterParameters
+
+  const animalStates = ['adopcion', 'encontrado', 'perdido']
+
+  const isActive = (animalState: string) => state === animalState
 
   return (
-    <ReactNativeModal
-      swipeDirection={'down'}
-      onSwipeComplete={() => setters.setShowFiltersModal(false)}
-      isVisible={states.showFiltersModal}
-      style={{ margin: 0 }}
-    >
+    <ReactNativeModal isVisible={states.showFiltersModal} style={{ margin: 0 }}>
       <View style={St.contentContainer}>
-        <View style={{ alignItems: 'center' }}>
-          <IconO name="horizontal-rule" size={40} color={colors.secondary} />
-        </View>
-        <View style={St.headerContainer}>
-          <View style={St.filterIconContainer}>
-            <IconF name="filter" size={20} color={colors.secondary} />
-            <Text style={St.filterIconText}>Filtros</Text>
+        <View>
+          <View style={St.headerContainer}>
+            <View style={St.filterIconContainer}>
+              <IconF name="filter" size={20} color={colors.secondary} />
+              <Text style={St.filterIconText}>Filtros</Text>
+            </View>
+            <Pressable onPress={() => setters.setShowFiltersModal(false)}>
+              <IconI name="close" size={25} color={colors.secondary} />
+            </Pressable>
+          </View>
+          {/* Animals filter by state */}
+          <View style={St.stateFilterContainer}>
+            <Text style={St.stateFilterTitle}>Estado</Text>
+            <View style={St.stateFilterOptions}>
+              {animalStates.map(state => {
+                const shadowStyle = isActive(state) ? St.shadowOption : {}
+                return (
+                  <TouchableOpacity
+                    key={state}
+                    onPress={() =>
+                      setters.setFilterParameters({ ...states.filterParameters, state })
+                    }
+                    style={[
+                      shadowStyle,
+                      St.option,
+                      { backgroundColor: isActive(state) ? colors.primary : 'transparent' },
+                    ]}
+                  >
+                    <Text
+                      style={{
+                        color: isActive(state) ? colors.white : colors.primary,
+                        fontSize: 16,
+                        textTransform: 'capitalize',
+                        fontFamily: 'Quicksand-Bold',
+                      }}
+                    >
+                      {state === 'adopcion' ? 'adopción' : state}
+                    </Text>
+                  </TouchableOpacity>
+                )
+              })}
+            </View>
+          </View>
+          {/* Animals filter by region and comuna */}
+          <View>
+            <CollapsePanel title="Región">
+              <Selectable data={regions} />
+            </CollapsePanel>
+            <CollapsePanel title="Comuna">
+              <Text>weta</Text>
+            </CollapsePanel>
           </View>
         </View>
-        <ScrollView showsVerticalScrollIndicator={false}>
-          {/* Animal state filter */}
-          <CollapsePanel title="Estado">
-            <Text>Hola como estaaas</Text>
-          </CollapsePanel>
-
-          {/* Submit filter */}
-          <TouchableOpacity style={St.filterSubmitContainer}>
-            <Text style={St.filterSubmitText}>aplicar</Text>
-          </TouchableOpacity>
-        </ScrollView>
+        {/* Submit filter button */}
+        <TouchableOpacity style={St.filterSubmitContainer}>
+          <Text style={St.filterSubmitText}>aplicar</Text>
+        </TouchableOpacity>
       </View>
     </ReactNativeModal>
   )

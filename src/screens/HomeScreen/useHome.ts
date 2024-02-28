@@ -7,6 +7,12 @@ const useHome = () => {
   const [animalTypeSelected, setAnimalTypeSelected] = useState('')
   const [fetching, setFetching] = useState(false)
   const [showFiltersModal, setShowFiltersModal] = useState(false)
+  const [filterParameters, setFilterParameters] = useState({
+    state: '',
+    region: '',
+    comuna: '',
+    type: '',
+  })
 
   const fetchWrap = isFetching(setFetching)
 
@@ -22,8 +28,12 @@ const useHome = () => {
   }, [])
 
   return {
-    states: { allAnimals, animalTypeSelected, fetching, showFiltersModal },
-    setters: { setAnimalTypeSelected, setShowFiltersModal },
+    states: { allAnimals, animalTypeSelected, fetching, showFiltersModal, filterParameters },
+    setters: {
+      setAnimalTypeSelected,
+      setShowFiltersModal,
+      setFilterParameters,
+    },
     actions: {
       filterAnimalsByType: fetchWrap(async (type: string) => {
         if (!type.length) return
