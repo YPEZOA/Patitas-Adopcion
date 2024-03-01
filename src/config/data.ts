@@ -2,7 +2,12 @@ export const regions = [
   {
     id: 1,
     region: 'Arica y Parinacota',
-    comunas: ['Arica', 'Camarones', 'Putre', 'General Lagos'],
+    comunas: [
+      { id: 1, name: 'Arica' },
+      { id: 2, name: 'Camarones' },
+      { id: 3, name: 'General Lagos' },
+      { id: 4, name: 'Putre' },
+    ],
   },
   {
     id: 2,

@@ -9,7 +9,7 @@ const useHome = () => {
   const [showFiltersModal, setShowFiltersModal] = useState(false)
   const [filterParameters, setFilterParameters] = useState({
     state: '',
-    region: '',
+    region: { id: 0, region: '', comunas: [] },
     comuna: '',
     type: '',
   })
@@ -28,7 +28,16 @@ const useHome = () => {
   }, [])
 
   return {
-    states: { allAnimals, animalTypeSelected, fetching, showFiltersModal, filterParameters },
+    states: {
+      allAnimals,
+      animalTypeSelected,
+      fetching,
+      showFiltersModal,
+      filterParameters,
+      get getAvailableCommunes() {
+        return filterParameters.region.comunas
+      },
+    },
     setters: {
       setAnimalTypeSelected,
       setShowFiltersModal,
@@ -39,6 +48,13 @@ const useHome = () => {
         if (!type.length) return
         const animalsFiltered = await getAnimalsByType(type)
         setAllAnimals(animalsFiltered.data)
+      }),
+      getAnimalsByFiltered: fetchWrap(async () => {
+        const filterPayload = {
+          ...filterParameters,
+          region: filterParameters.region.id,
+        }
+        console.log(filterParameters)
       }),
     },
   }

@@ -7,7 +7,7 @@ import colors from '../../UI/colors'
 import Collapsible from 'react-native-collapsible'
 import { CollapsiblePanelProps } from '../../utils/models'
 
-const CollapsePanel = ({ title, children, ...props }: CollapsiblePanelProps) => {
+const CollapsePanel = ({ title, children }: CollapsiblePanelProps) => {
   const [collapsed, setCollapsed] = useState(true)
 
   return (

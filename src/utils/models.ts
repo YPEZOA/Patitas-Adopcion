@@ -1,3 +1,4 @@
+import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import React from 'react'
 
 export type AnimalProps = {
@@ -28,4 +29,21 @@ export interface LogoProps {
 export interface CollapsiblePanelProps {
   title: string
   children: React.ReactNode
+}
+
+export type RootStackParamList = {
+  Welcome: undefined
+  Home: undefined
+  AnimalProfile: undefined
+}
+
+export type ScreenRouteProps = NativeStackScreenProps<
+  RootStackParamList,
+  'Home' | 'Welcome' | 'AnimalProfile'
+>
+
+declare global {
+  namespace ReactNavigation {
+    interface RootParamList extends RootStackParamList {}
+  }
 }

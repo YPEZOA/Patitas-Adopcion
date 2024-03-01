@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { View, Text, TouchableOpacity, Pressable } from 'react-native'
+import { View, Text, TouchableOpacity, Pressable, FlatList } from 'react-native'
 import { HomeContext } from '../../context'
 import ReactNativeModal from 'react-native-modal'
 import CollapsePanel from '../../../../components/Collapsible/Collapsible'
@@ -9,9 +9,10 @@ import { filtersModal as St } from './styles'
 import IconF from 'react-native-vector-icons/Feather'
 import IconI from 'react-native-vector-icons/Ionicons'
 import colors from '../../../../UI/colors'
+import { selectableStyles as SSt } from '../../../../components/Selectable/styles'
 
 const FiltersModal = () => {
-  const { states, setters } = useContext(HomeContext)
+  const { states, setters, actions } = useContext(HomeContext)
   const { state } = states.filterParameters
 
   const animalStates = ['adopcion', 'encontrado', 'perdido']
@@ -50,12 +51,12 @@ const FiltersModal = () => {
                     ]}
                   >
                     <Text
-                      style={{
-                        color: isActive(state) ? colors.white : colors.primary,
-                        fontSize: 16,
-                        textTransform: 'capitalize',
-                        fontFamily: 'Quicksand-Bold',
-                      }}
+                      style={[
+                        St.optionText,
+                        {
+                          color: isActive(state) ? colors.white : colors.primary,
+                        },
+                      ]}
                     >
                       {state === 'adopcion' ? 'adopción' : state}
                     </Text>
@@ -70,12 +71,36 @@ const FiltersModal = () => {
               <Selectable data={regions} />
             </CollapsePanel>
             <CollapsePanel title="Comuna">
-              <Text>weta</Text>
+              {states.getAvailableCommunes?.length ? (
+                <FlatList
+                  data={states.getAvailableCommunes}
+                  renderItem={({ item }) => (
+                    <TouchableOpacity
+                      style={SSt.itemContainer}
+                      key={item}
+                      onPress={() =>
+                        setters.setFilterParameters({ ...states.filterParameters, comuna: item })
+                      }
+                    >
+                      <Text style={SSt.itemText}>{item}</Text>
+                      {states.filterParameters.comuna === item && (
+                        <IconF name="check" size={20} color={colors.primary} />
+                      )}
+                    </TouchableOpacity>
+                  )}
+                />
+              ) : (
+                <Text>Debe seleccionar una región</Text>
+              )}
             </CollapsePanel>
           </View>
         </View>
         {/* Submit filter button */}
-        <TouchableOpacity style={St.filterSubmitContainer}>
+        <TouchableOpacity
+          disabled={states.fetching}
+          onPress={() => actions.getAnimalsByFiltered()}
+          style={St.filterSubmitContainer}
+        >
           <Text style={St.filterSubmitText}>aplicar</Text>
         </TouchableOpacity>
       </View>

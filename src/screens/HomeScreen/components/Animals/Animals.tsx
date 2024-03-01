@@ -1,14 +1,16 @@
 import React, { useContext } from 'react'
-import { Text, View } from 'react-native'
+import { Pressable, Text, View } from 'react-native'
 import { HomeContext } from '../../context'
 import Animal from '../Animal/Animal'
 import MasonryList from '@react-native-seoul/masonry-list'
 import Animated, { FadeInDown } from 'react-native-reanimated'
 import { animalsStyles as St } from '../Animals/styles'
 import LottieView from 'lottie-react-native'
+import { useNavigation } from '@react-navigation/native'
 
 const Animals = () => {
   const { states } = useContext(HomeContext)
+  const navigation = useNavigation()
 
   if (!states.allAnimals.length && !states.fetching)
     return (
@@ -39,7 +41,11 @@ const Animals = () => {
             keyExtractor={item => item.id}
             showsVerticalScrollIndicator={false}
             data={states.allAnimals}
-            renderItem={({ item, i }: any) => <Animal data={item} index={i} />}
+            renderItem={({ item, i }: any) => (
+              <Pressable onPress={() => navigation.navigate('AnimalProfile', item)}>
+                <Animal data={item} index={i} />
+              </Pressable>
+            )}
             numColumns={2}
             onEndReachedThreshold={0.1}
             style={{ gap: 10 }}

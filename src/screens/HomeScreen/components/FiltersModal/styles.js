@@ -72,4 +72,9 @@ export const filtersModal = StyleSheet.create({
     paddingHorizontal: 14,
     paddingVertical: 6,
   },
+  optionText: {
+    fontSize: 16,
+    textTransform: 'capitalize',
+    fontFamily: 'Quicksand-Bold',
+  },
 })

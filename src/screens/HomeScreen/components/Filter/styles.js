@@ -22,11 +22,11 @@ export const filterStyles = StyleSheet.create({
     gap: 40,
   },
   typeOptionsContent: {
-    paddingTop: 5,
+    padding: 5,
     display: 'flex',
     flexDirection: 'row',
-    gap: 30,
-    paddingHorizontal: 10,
+    alignItems: 'center',
+    gap: 24,
   },
   typeText: {
     fontFamily: 'Quicksand-Bold',
