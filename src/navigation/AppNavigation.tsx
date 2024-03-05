@@ -5,6 +5,7 @@ import WelcomeScreen from '../screens/WelcomeScreen/WelcomeScreen'
 import HomeScreen from '../screens/HomeScreen'
 import AnimalProfileScreen from '../screens/AnimalProfileScreen/AnimalProfileScreen'
 import { RootStackParamList } from '../utils/models'
+import colors from '../UI/colors'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -16,6 +17,7 @@ const AppNavigation = () => {
         screenOptions={{
           headerTransparent: true,
           headerShown: false,
+          statusBarColor: colors.primary,
         }}
       >
         <Stack.Screen
@@ -31,7 +33,11 @@ const AppNavigation = () => {
         <Stack.Screen
           name="AnimalProfile"
           component={AnimalProfileScreen}
-          options={{ statusBarTranslucent: true, statusBarColor: 'transparent' }}
+          options={{
+            statusBarAnimation: 'slide',
+            animation: 'slide_from_right',
+            statusBarHidden: true,
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

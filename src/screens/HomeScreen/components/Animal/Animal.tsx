@@ -6,6 +6,7 @@ import { animalStyles as St } from './styles'
 import Icon from 'react-native-vector-icons/Ionicons'
 import IconS from 'react-native-vector-icons/SimpleLineIcons'
 import colors from '../../../../UI/colors'
+import { genderColor, genderIcon } from '../../../../UI/constants.helper'
 
 interface Props {
   data: AnimalProps
@@ -32,25 +33,11 @@ const Animal = ({ data, index }: Props) => {
           <View style={St.infoContent}>
             <View style={St.nameSection}>
               <Text style={St.nameText}>{nombre}</Text>
-              <View>
-                {genero === 'macho' ? (
-                  <IconS name="symbol-male" color={'#54B0DC'} size={15} />
-                ) : (
-                  <IconS name="symbol-female" color={'#F78B8B'} size={15} />
-                )}
-              </View>
+              <IconS name={genderIcon(genero || '')} color={genderColor(genero || '')} />
             </View>
             <View style={St.location}>
-              <Icon
-                name="location-outline"
-                size={20}
-                color={colors.neutralText}
-              />
-              <Text
-                style={St.locationText}
-                ellipsizeMode="tail"
-                numberOfLines={1}
-              >
+              <Icon name="location-outline" size={20} color={colors.neutralText} />
+              <Text style={St.locationText} ellipsizeMode="tail" numberOfLines={1}>
                 {comuna}, {region}
               </Text>
             </View>

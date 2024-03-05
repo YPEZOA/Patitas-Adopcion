@@ -1,4 +1,4 @@
-const toJSON = (response: Response) => response.json()
+const toJSON = (resp: Response) => resp.json()
 
 const http = {
   async get(url: string) {
