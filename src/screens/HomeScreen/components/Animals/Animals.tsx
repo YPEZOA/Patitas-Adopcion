@@ -7,6 +7,7 @@ import Animated, { FadeInDown } from 'react-native-reanimated'
 import { animalsStyles as St } from '../Animals/styles'
 import LottieView from 'lottie-react-native'
 import { useNavigation } from '@react-navigation/native'
+import AnimalsFiltered from '../AnimalsFiltered/AnimalsFiltered'
 
 const Animals = () => {
   const { states } = useContext(HomeContext)
@@ -24,16 +25,17 @@ const Animals = () => {
 
   return (
     <View style={St.container}>
-      {states.fetching ? (
-        <View style={St.loaderContainer}>
-          <LottieView
-            style={St.lottieLoading}
-            source={require('../../../../../assets/animations/loading.json')}
-            loop
-            autoPlay
-          />
-        </View>
+      {states.animalsFiltered ? (
+        <AnimalsFiltered />
       ) : (
+        // <View style={St.loaderContainer}>
+        //   <LottieView
+        //     style={St.lottieLoading}
+        //     source={require('../../../../../assets/animations/loading.json')}
+        //     loop
+        //     autoPlay
+        //   />
+        // </View>
         <View style={{ flex: 1 }}>
           <MasonryList
             ListHeaderComponent={<Text style={St.titleList}>Esperan por ti</Text>}

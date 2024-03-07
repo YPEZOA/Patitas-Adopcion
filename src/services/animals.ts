@@ -17,3 +17,11 @@ export const getAnimalsByType = (type: string) => {
     console.error(error)
   }
 }
+
+export const getAnimalsByFilters = (payload: string) => {
+  try {
+    return http.get(`${URI}/animales/${payload}`)
+  } catch (error) {
+    console.error(error)
+  }
+}

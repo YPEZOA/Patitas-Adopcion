@@ -19,6 +19,11 @@ const FiltersModal = () => {
 
   const isActive = (animalState: string) => state === animalState
 
+  const onCloseModal = () => {
+    setters.setShowFiltersModal(false)
+    actions.resetModalData()
+  }
+
   return (
     <ReactNativeModal isVisible={states.showFiltersModal} style={{ margin: 0 }}>
       <View style={St.contentContainer}>
@@ -28,7 +33,7 @@ const FiltersModal = () => {
               <IconF name="filter" size={20} color={colors.secondary} />
               <Text style={St.filterIconText}>Filtros</Text>
             </View>
-            <Pressable onPress={() => setters.setShowFiltersModal(false)}>
+            <Pressable onPress={() => onCloseModal()}>
               <IconI name="close" size={25} color={colors.secondary} />
             </Pressable>
           </View>
@@ -77,13 +82,13 @@ const FiltersModal = () => {
                   renderItem={({ item }) => (
                     <TouchableOpacity
                       style={SSt.itemContainer}
-                      key={item}
+                      key={item.id}
                       onPress={() =>
-                        setters.setFilterParameters({ ...states.filterParameters, comuna: item })
+                        setters.setFilterParameters({ ...states.filterParameters, comuna: item.id })
                       }
                     >
-                      <Text style={SSt.itemText}>{item}</Text>
-                      {states.filterParameters.comuna === item && (
+                      <Text style={SSt.itemText}>{item.name}</Text>
+                      {states.filterParameters.comuna === item.id && (
                         <IconF name="check" size={20} color={colors.primary} />
                       )}
                     </TouchableOpacity>
@@ -97,9 +102,9 @@ const FiltersModal = () => {
         </View>
         {/* Submit filter button */}
         <TouchableOpacity
-          disabled={states.fetching}
+          disabled={states.fetching || !states.anyFilterSelected}
           onPress={() => actions.getAnimalsByFiltered()}
-          style={St.filterSubmitContainer}
+          style={[St.filterSubmitContainer, { opacity: !states.anyFilterSelected ? 0.8 : 1 }]}
         >
           <Text style={St.filterSubmitText}>aplicar</Text>
         </TouchableOpacity>
