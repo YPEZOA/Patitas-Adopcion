@@ -16,7 +16,9 @@ const Filters = () => {
 
   const handleTypeSelected = (type: string) => {
     setters.setAnimalTypeSelected(type)
+    setters.setFilterSubmited(false)
     actions.filterAnimalsByType(type)
+    setters.setAnimalsFiltered([])
     renderIconByType(type)
   }
 

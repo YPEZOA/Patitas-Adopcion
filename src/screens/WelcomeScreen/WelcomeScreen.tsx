@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { View, Text, TouchableOpacity, ImageBackground, StatusBar, Image } from 'react-native'
+import { View, Text, TouchableOpacity, ImageBackground } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { welcomeScreen as St } from './styles'
 import Animated, {
@@ -11,8 +11,6 @@ import Animated, {
 } from 'react-native-reanimated'
 import LogoBeta from '../../UI/Icons/LogoBeta'
 import LogoWithTag from '../../UI/Icons/LogoWithTag'
-import LinearGradient from 'react-native-linear-gradient'
-import colors from '../../UI/colors'
 
 const WelcomeScreen = () => {
   const rotate = useSharedValue(5)

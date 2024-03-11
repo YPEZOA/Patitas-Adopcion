@@ -35,6 +35,7 @@ export type RootStackParamList = {
   Welcome: undefined
   Home: undefined
   AnimalProfile: undefined
+  FilterResultScreen: undefined
 }
 
 export type ScreenRouteProps = NativeStackScreenProps<

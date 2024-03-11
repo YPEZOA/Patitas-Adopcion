@@ -15,25 +15,37 @@ const useHome = () => {
   const [showFiltersModal, setShowFiltersModal] = useState(false)
   const [filterParameters, setFilterParameters] = useState(initialState)
   const [animalsFiltered, setAnimalsFiltered] = useState([])
+  const [filterSubmited, setFilterSubmited] = useState(false)
+  const [fetchWithoutData, setFetchWithoutData] = useState(false)
 
   const fetchWrap = isFetching(setFetching)
 
   useEffect(() => {
-    async function fn() {
+    async function getAnimals() {
       setFetching(true)
       const animals = await getAllAnimals()
+      dataIsVisible(animals)
       setAllAnimals(animals.data)
       setFetching(false)
     }
-    fn()
+    getAnimals()
   }, [])
 
-  const resetModalData = () => {
+  const dataIsVisible = ({ data }: any) => {
+    return !data?.length ? setFetchWithoutData(true) : setFetchWithoutData(false)
+  }
+
+  const resetFilter = () => {
+    setFilterSubmited(false)
     setFilterParameters(initialState)
+    setAnimalsFiltered([])
+    setFilterSubmited(false)
   }
 
   return {
     states: {
+      fetchWithoutData,
+      filterSubmited,
       allAnimals,
       animalTypeSelected,
       fetching,
@@ -46,18 +58,24 @@ const useHome = () => {
       get anyFilterSelected() {
         return filterParameters !== initialState
       },
+      get filterResultLength() {
+        return animalsFiltered?.length > 0
+      },
     },
     setters: {
+      setFilterSubmited,
       setAnimalTypeSelected,
       setShowFiltersModal,
       setFilterParameters,
+      setAnimalsFiltered,
     },
     actions: {
-      resetModalData,
+      resetFilter,
       filterAnimalsByType: fetchWrap(async (type: string) => {
         if (!type.length) return
-        const animalsFiltered = await getAnimalsByType(type)
-        setAllAnimals(animalsFiltered.data)
+        const animalsFilter = await getAnimalsByType(type)
+        dataIsVisible(animalsFilter)
+        setAnimalsFiltered(animalsFilter.data)
       }),
       getAnimalsByFiltered: fetchWrap(async () => {
         const filterPayload = {
@@ -70,8 +88,10 @@ const useHome = () => {
           const animalsByComuna = await getAnimalsByFilters(
             `comuna/${comuna}${state.length ? `/estado/${state}` : ''}`
           )
+          dataIsVisible(animalsByComuna)
           setAnimalsFiltered(animalsByComuna.data)
-          resetModalData()
+          setAnimalTypeSelected('')
+          setFilterParameters(initialState)
         } else {
           const regionSelected = filterPayload.region !== null
           const stateSelected = filterPayload.state !== ''
@@ -84,8 +104,10 @@ const useHome = () => {
                 : `estado/${state}`
             }`
           )
+          setAnimalTypeSelected('')
           setAnimalsFiltered(animalsFilteredBySelection.data)
-          resetModalData()
+          dataIsVisible(animalsFilteredBySelection)
+          setFilterParameters(initialState)
         }
       }),
     },

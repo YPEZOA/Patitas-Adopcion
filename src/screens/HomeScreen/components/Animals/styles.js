@@ -24,8 +24,4 @@ export const animalsStyles = StyleSheet.create({
     fontFamily: 'Quicksand-Bold',
     color: colors.secondary,
   },
-  lottieLoading: {
-    width: 120,
-    height: 120,
-  },
 })

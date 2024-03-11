@@ -5,11 +5,11 @@ import ReactNativeModal from 'react-native-modal'
 import CollapsePanel from '../../../../components/Collapsible/Collapsible'
 import Selectable from '../../../../components/Selectable/Selectable'
 import { regions } from '../../../../config/data'
-import { filtersModal as St } from './styles'
 import IconF from 'react-native-vector-icons/Feather'
 import IconI from 'react-native-vector-icons/Ionicons'
-import colors from '../../../../UI/colors'
+import { filtersModal as St } from './styles'
 import { selectableStyles as SSt } from '../../../../components/Selectable/styles'
+import colors from '../../../../UI/colors'
 
 const FiltersModal = () => {
   const { states, setters, actions } = useContext(HomeContext)
@@ -21,7 +21,12 @@ const FiltersModal = () => {
 
   const onCloseModal = () => {
     setters.setShowFiltersModal(false)
-    actions.resetModalData()
+  }
+
+  const onHandleSubmit = () => {
+    actions.getAnimalsByFiltered()
+    setters.setShowFiltersModal(false)
+    setters.setFilterSubmited(true)
   }
 
   return (
@@ -41,29 +46,32 @@ const FiltersModal = () => {
           <View style={St.stateFilterContainer}>
             <Text style={St.stateFilterTitle}>Estado</Text>
             <View style={St.stateFilterOptions}>
-              {animalStates.map(state => {
-                const shadowStyle = isActive(state) ? St.shadowOption : {}
+              {animalStates.map(animalState => {
+                const shadowStyle = isActive(animalState) ? St.shadowOption : {}
                 return (
                   <TouchableOpacity
-                    key={state}
+                    key={animalState}
                     onPress={() =>
-                      setters.setFilterParameters({ ...states.filterParameters, state })
+                      setters.setFilterParameters({
+                        ...states.filterParameters,
+                        state: animalState,
+                      })
                     }
                     style={[
                       shadowStyle,
                       St.option,
-                      { backgroundColor: isActive(state) ? colors.primary : 'transparent' },
+                      { backgroundColor: isActive(animalState) ? colors.primary : 'transparent' },
                     ]}
                   >
                     <Text
                       style={[
                         St.optionText,
                         {
-                          color: isActive(state) ? colors.white : colors.primary,
+                          color: isActive(animalState) ? colors.white : colors.primary,
                         },
                       ]}
                     >
-                      {state === 'adopcion' ? 'adopción' : state}
+                      {animalState === 'adopcion' ? 'adopción' : animalState}
                     </Text>
                   </TouchableOpacity>
                 )
@@ -103,7 +111,7 @@ const FiltersModal = () => {
         {/* Submit filter button */}
         <TouchableOpacity
           disabled={states.fetching || !states.anyFilterSelected}
-          onPress={() => actions.getAnimalsByFiltered()}
+          onPress={() => onHandleSubmit()}
           style={[St.filterSubmitContainer, { opacity: !states.anyFilterSelected ? 0.8 : 1 }]}
         >
           <Text style={St.filterSubmitText}>aplicar</Text>

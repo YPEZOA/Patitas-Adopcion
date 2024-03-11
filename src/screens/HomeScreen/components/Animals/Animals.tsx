@@ -1,48 +1,29 @@
 import React, { useContext } from 'react'
 import { Pressable, Text, View } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { HomeContext } from '../../context'
+import { animalsStyles as St } from '../Animals/styles'
 import Animal from '../Animal/Animal'
 import MasonryList from '@react-native-seoul/masonry-list'
-import Animated, { FadeInDown } from 'react-native-reanimated'
-import { animalsStyles as St } from '../Animals/styles'
-import LottieView from 'lottie-react-native'
-import { useNavigation } from '@react-navigation/native'
-import AnimalsFiltered from '../AnimalsFiltered/AnimalsFiltered'
+import IsLoading from '../../../../components/IsLoading/IsLoading'
+import WithoutResults from '../../../../components/WithoutResults/WithoutResults'
 
 const Animals = () => {
   const { states } = useContext(HomeContext)
   const navigation = useNavigation()
 
-  if (!states.allAnimals.length && !states.fetching)
-    return (
-      <Animated.View
-        entering={FadeInDown.springify().duration(1000).damping(20)}
-        style={St.loaderContainer}
-      >
-        <Text style={St.notRestultText}>No se encontraron resultados</Text>
-      </Animated.View>
-    )
-
   return (
-    <View style={St.container}>
-      {states.animalsFiltered ? (
-        <AnimalsFiltered />
+    <IsLoading isLoading={states.fetching}>
+      {states.fetchWithoutData ? (
+        <WithoutResults />
       ) : (
-        // <View style={St.loaderContainer}>
-        //   <LottieView
-        //     style={St.lottieLoading}
-        //     source={require('../../../../../assets/animations/loading.json')}
-        //     loop
-        //     autoPlay
-        //   />
-        // </View>
-        <View style={{ flex: 1 }}>
+        <View style={St.container}>
           <MasonryList
             ListHeaderComponent={<Text style={St.titleList}>Esperan por ti</Text>}
             refreshControl={false}
             keyExtractor={item => item.id}
             showsVerticalScrollIndicator={false}
-            data={states.allAnimals}
+            data={!states.filterResultLength ? states.allAnimals : states.animalsFiltered}
             renderItem={({ item, i }: any) => (
               <Pressable onPress={() => navigation.navigate('AnimalProfile', item)}>
                 <Animal data={item} index={i} />
@@ -54,7 +35,7 @@ const Animals = () => {
           />
         </View>
       )}
-    </View>
+    </IsLoading>
   )
 }
 

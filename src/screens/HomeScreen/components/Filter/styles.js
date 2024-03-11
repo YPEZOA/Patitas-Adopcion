@@ -27,6 +27,7 @@ export const filterStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 24,
+    paddingBottom: 20,
   },
   typeText: {
     fontFamily: 'Quicksand-Bold',

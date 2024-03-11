@@ -38,4 +38,9 @@ export const homeScreen = StyleSheet.create({
     color: colors.white,
     fontSize: 12,
   },
+  closeIcon: {
+    backgroundColor: colors.white,
+    borderRadius: 10,
+    padding: 10,
+  },
 })
