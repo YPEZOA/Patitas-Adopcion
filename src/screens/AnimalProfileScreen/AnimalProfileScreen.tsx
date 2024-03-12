@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Image, TouchableOpacity, ScrollView, Text, StatusBar } from 'react-native'
+import { View, Image, TouchableOpacity, ScrollView, Text } from 'react-native'
 import { ScreenRouteProps } from '../../utils/models'
 import { animalStyles as St } from './styles'
 import Icon from 'react-native-vector-icons/Feather'

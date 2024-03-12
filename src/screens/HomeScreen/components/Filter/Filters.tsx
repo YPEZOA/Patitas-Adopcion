@@ -1,14 +1,14 @@
 import React, { useContext } from 'react'
 import { Platform, ScrollView, Text, TouchableOpacity, View } from 'react-native'
-import { filterStyles as St } from './styles'
-import { HomeContext } from '../../context'
 import Animated, { FadeInDown } from 'react-native-reanimated'
 import Icon from 'react-native-vector-icons/Octicons'
-import Dog from '../../../../UI/Icons/Dog'
-import Cat from '../../../../UI/Icons/Cat'
-import Rabbit from '../../../../UI/Icons/Rabbit'
 import Bird from '../../../../UI/Icons/Bird'
+import Cat from '../../../../UI/Icons/Cat'
+import Dog from '../../../../UI/Icons/Dog'
+import Rabbit from '../../../../UI/Icons/Rabbit'
 import colors from '../../../../UI/colors'
+import { HomeContext } from '../../context'
+import { filterStyles as St } from './styles'
 
 const Filters = () => {
   const { states, setters, actions } = useContext(HomeContext)

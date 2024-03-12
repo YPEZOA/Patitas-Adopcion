@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { View, Text, Image } from 'react-native'
 import Animated, { FadeInDown } from 'react-native-reanimated'
 import { AnimalProps } from '../../../../utils/models'
@@ -26,7 +26,7 @@ const Animal = ({ data, index }: Props) => {
     >
       <View style={St.box}>
         <Image
-          style={[St.image, { height: index % 3 == 0 ? 230 : 300 }]}
+          style={[St.image, { height: index % 3 === 0 ? 230 : 300 }]}
           source={{ uri: imagen }}
         />
         <View style={[St.infoContainer, { marginLeft: isEven ? 0 : 6 }]}>
