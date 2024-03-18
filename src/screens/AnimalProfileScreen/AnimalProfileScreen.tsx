@@ -8,14 +8,9 @@ import IconI from 'react-native-vector-icons/Ionicons'
 import IconF from 'react-native-vector-icons/FontAwesome'
 import colors from '../../UI/colors'
 import { asideLabel, genderColor, genderIcon } from '../../UI/constants.helper'
-import Animated, {
-  FadeInDown,
-  useAnimatedStyle,
-  useSharedValue,
-  withRepeat,
-  withSpring,
-} from 'react-native-reanimated'
-import { animalByLiked, likedAnimal } from '../../utils/storage/storage'
+import Animated, { FadeInDown } from 'react-native-reanimated'
+
+import { animalByLiked, likedAnimal, unlikedAnimal } from '../../utils/storage/storage'
 
 const AnimalProfileScreen = ({ route, navigation }: ScreenRouteProps) => {
   const {
@@ -39,31 +34,31 @@ const AnimalProfileScreen = ({ route, navigation }: ScreenRouteProps) => {
   const genderLetter = genero === 'macho' ? 'o' : 'a'
   const esterilizacion = esterilizado === 0 ? 'Sin esterilizar' : `Esterilizad${genderLetter}`
   const vacunacion = vacunas === 0 ? 'Sin Vacunar' : `Vacunad${genderLetter}`
-  const heartSize = useSharedValue(0)
-
-  const animatedStyles = useAnimatedStyle(() => ({
-    transform: [
-      {
-        scale: heartSize.value,
-      },
-    ],
-  }))
 
   const handleLikeAnimal = () => {
-    const payload = { id, nombre }
-    likedAnimal(payload)
+    const payload = {
+      id,
+      nombre,
+      imagen,
+      genero,
+      region,
+      comuna,
+      estado,
+      edad,
+      desc_adicional,
+      desc_fisica,
+      desc_personalidad,
+    }
+    animalIsLiked ? unlikedAnimal(id) : likedAnimal(payload)
     setAnimalIsLiked(!animalIsLiked)
-    heartSize.value = withRepeat(withSpring(animalIsLiked ? 1 : 1.5), 2, true)
   }
 
   useEffect(() => {
-    heartSize.value = 1
     async function fn() {
       const isLiked = await animalByLiked(id)
       setAnimalIsLiked(isLiked)
     }
     fn()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
   return (
@@ -107,10 +102,14 @@ const AnimalProfileScreen = ({ route, navigation }: ScreenRouteProps) => {
         </ScrollView>
 
         <Animated.View entering={FadeInDown.delay(200).springify()} style={St.actionsContainer}>
-          <TouchableOpacity style={St.heartIconContainer} onPress={() => handleLikeAnimal()}>
-            <Animated.View style={animatedStyles}>
-              <IconF name="heart" color={animalIsLiked ? '#ee6352' : colors.white} size={25} />
-            </Animated.View>
+          <TouchableOpacity
+            style={[
+              St.heartIconContainer,
+              { backgroundColor: animalIsLiked ? '#ee6352' : colors.primary },
+            ]}
+            onPress={() => handleLikeAnimal()}
+          >
+            <IconF name="heart" color={colors.white} size={20} />
           </TouchableOpacity>
           <TouchableOpacity style={St.adoptButtonContainer}>
             <Text style={[St.defaultText, { textAlign: 'center', color: colors.white }]}>

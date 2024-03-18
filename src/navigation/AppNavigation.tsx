@@ -6,6 +6,7 @@ import HomeScreen from '../screens/HomeScreen'
 import AnimalProfileScreen from '../screens/AnimalProfileScreen/AnimalProfileScreen'
 import { RootStackParamList } from '../utils/models'
 import colors from '../UI/colors'
+import AnimalsLikeScreen from '../screens/AnimalsLikeScreen/AnimalsLikeScreen'
 
 const Stack = createNativeStackNavigator<RootStackParamList>()
 
@@ -39,6 +40,7 @@ const AppNavigation = () => {
             statusBarHidden: true,
           }}
         />
+        <Stack.Screen name="AnimalsLikes" component={AnimalsLikeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   )

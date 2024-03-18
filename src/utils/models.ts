@@ -31,11 +31,25 @@ export interface CollapsiblePanelProps {
   children: React.ReactNode
 }
 
+export interface AnimalLiked {
+  id: number
+  nombre: string
+  imagen: string
+  genero: string
+  region: string
+  comuna: string
+  estado: string
+  edad: string
+  desc_fisica: string
+  desc_personalidad: string
+  desc_adicional: string
+}
+
 export type RootStackParamList = {
   Welcome: undefined
   Home: undefined
   AnimalProfile: undefined
-  FilterResultScreen: undefined
+  AnimalsLikes: undefined
 }
 
 export type ScreenRouteProps = NativeStackScreenProps<

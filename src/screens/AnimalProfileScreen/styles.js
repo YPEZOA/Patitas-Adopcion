@@ -64,20 +64,17 @@ export const animalStyles = StyleSheet.create({
     paddingBottom: isIOS ? 25 : 10,
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
   },
   heartIconContainer: {
-    backgroundColor: colors.primary,
     padding: 10,
-    borderRadius: 10,
+    borderRadius: 100,
   },
   adoptButtonContainer: {
-    alignItems: 'center',
     flexGrow: 1,
     backgroundColor: colors.primary,
     padding: 10,
     borderRadius: 10,
-    marginLeft: 20,
+    marginLeft: 10,
   },
   heartsLottie: { position: 'absolute', right: -70, bottom: 0, width: 200, height: 200 },
 })

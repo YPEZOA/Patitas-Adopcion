@@ -1,23 +1,14 @@
 import AsyncStorage from '@react-native-async-storage/async-storage'
-
-interface LikeAnimal {
-  id: number
-  nombre: string
-}
+import { AnimalLiked } from '../models'
 
 const jsonStr = (value: any) => JSON.stringify(value)
-const getLikedsList = async () => JSON.parse((await AsyncStorage.getItem('liked-animal')) || '[]')
 
-export const likedAnimal = async (value: LikeAnimal) => {
+export const getLikedsList = async () =>
+  JSON.parse((await AsyncStorage.getItem('liked-animal')) || '[]')
+
+export const likedAnimal = async (value: AnimalLiked) => {
+  const animalsList = await getLikedsList()
   try {
-    const animalsList = await getLikedsList()
-    const alreadyLiked = animalsList.find((item: LikeAnimal) => item.id === value.id)
-
-    if (alreadyLiked) {
-      const data = jsonStr(animalsList.filter((item: LikeAnimal) => item.id !== value.id))
-      return await AsyncStorage.setItem('liked-animal', data)
-    }
-
     const dataToSet = jsonStr([...animalsList, value])
     return await AsyncStorage.setItem('liked-animal', dataToSet)
   } catch (err) {
@@ -25,8 +16,22 @@ export const likedAnimal = async (value: LikeAnimal) => {
   }
 }
 
+export const unlikedAnimal = async (id: number) => {
+  const animalsList = await getLikedsList()
+  try {
+    const alreadyLiked = animalsList.find((item: AnimalLiked) => item.id === id)
+
+    if (alreadyLiked) {
+      const data = jsonStr(animalsList.filter((item: AnimalLiked) => item.id !== id))
+      return await AsyncStorage.setItem('liked-animal', data)
+    }
+  } catch (err) {
+    console.error(err)
+  }
+}
+
 export const animalByLiked = async (id: number) => {
   const animalsLikedList = await getLikedsList()
-  const isLiked = await animalsLikedList.find((item: LikeAnimal) => item.id === id)
+  const isLiked = await animalsLikedList.find((item: AnimalLiked) => item.id === id)
   return !!isLiked
 }

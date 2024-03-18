@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, View, StatusBar } from 'react-native'
+import { TouchableOpacity, View, StatusBar, Pressable, Text } from 'react-native'
 import { homeScreen as St } from './styles'
 import { HomeContext } from './context'
 import useHome from './useHome'
@@ -9,14 +9,19 @@ import Filters from './components/Filter/Filters'
 import FiltersModal from './components/FiltersModal/FiltersModal'
 import LightLogoText from '../../UI/Icons/LogoWithTagLight'
 import FilterResult from './components/FilterResult/FilterResult'
+import { useNavigation } from '@react-navigation/native'
 import colors from '../../UI/colors'
 
 const HomeScreen = () => {
   const { states, actions, setters } = useHome()
+  const navigation = useNavigation()
 
   return (
     <HomeContext.Provider value={{ states, actions, setters }}>
       <StatusBar backgroundColor={colors.primary} />
+      <Pressable onPress={() => navigation.navigate('AnimalsLikes')}>
+        <Text>FAVORITES</Text>
+      </Pressable>
       <View style={St.containerMain}>
         {/* Header */}
         <View style={St.headerContainer}>

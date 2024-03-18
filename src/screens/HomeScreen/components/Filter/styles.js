@@ -3,7 +3,7 @@ import colors from '../../../../UI/colors'
 
 export const filterStyles = StyleSheet.create({
   filterContent: {
-    marginTop: 30,
+    marginTop: 20,
     display: 'flex',
     alignItems: 'flex-start',
   },
@@ -27,7 +27,6 @@ export const filterStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 24,
-    paddingBottom: 20,
   },
   typeText: {
     fontFamily: 'Quicksand-Bold',
