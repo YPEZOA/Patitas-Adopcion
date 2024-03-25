@@ -112,7 +112,6 @@ export const favoriteStyles = StyleSheet.create({
   },
   adoptButtonText: {
     color: colors.white,
-    fontSize: 12,
     textAlign: 'center',
   },
 })

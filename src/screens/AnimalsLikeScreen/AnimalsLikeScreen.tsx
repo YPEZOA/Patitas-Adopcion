@@ -3,10 +3,10 @@ import { View, FlatList, Text, TouchableOpacity } from 'react-native'
 import FavoritesItem from './components/FavoritesItem/FavoritesItem'
 import { getLikedsList, unlikedAnimal } from '../../utils/storage/storage'
 import { favoriteStyles as St } from './styles'
-import Icon from 'react-native-vector-icons/Feather'
 import { AnimalLiked } from '../../utils/models'
-import colors from '../../UI/colors'
 import { useNavigation } from '@react-navigation/native'
+import Icon from 'react-native-vector-icons/Feather'
+import colors from '../../UI/colors'
 
 const AnimalsLikeScreen = () => {
   const [favorites, setFavorites] = useState([])

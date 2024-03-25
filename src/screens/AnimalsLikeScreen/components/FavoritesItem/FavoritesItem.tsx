@@ -44,6 +44,10 @@ const FavoritesItem = ({ index, data, onHandleRemoveFavorite }: FavoriteProps) =
             </Text>
           </View>
           <View style={St.actionButtons}>
+            <TouchableOpacity style={St.adoptButton} onPress={() => onHandleRemoveFavorite(id)}>
+              <Text style={St.adoptButtonText}>Adopción</Text>
+            </TouchableOpacity>
+
             <TouchableOpacity style={St.heartIcon} onPress={() => onHandleRemoveFavorite(id)}>
               <IconF name="heart" color={colors.white} size={12} />
             </TouchableOpacity>
