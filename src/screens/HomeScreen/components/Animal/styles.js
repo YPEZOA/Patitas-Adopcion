@@ -14,6 +14,7 @@ export const animalStyles = StyleSheet.create({
   },
   image: {
     borderRadius: 30,
+    backgroundColor: colors.secondary,
   },
   infoContainer: {
     marginTop: 10,

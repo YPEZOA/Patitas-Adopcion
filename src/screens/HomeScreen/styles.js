@@ -24,6 +24,11 @@ export const homeScreen = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
   },
+  headerButtonsContainer: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: 12,
+  },
   headerLogoContent: {
     display: 'flex',
     flexDirection: 'column',
@@ -41,6 +46,6 @@ export const homeScreen = StyleSheet.create({
   closeIcon: {
     backgroundColor: colors.white,
     borderRadius: 10,
-    padding: 10,
+    padding: 8,
   },
 })

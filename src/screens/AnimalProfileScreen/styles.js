@@ -54,6 +54,7 @@ export const animalStyles = StyleSheet.create({
   },
   infoContainer: { marginTop: 10, flexDirection: 'row', justifyContent: 'space-between' },
   defaultText: {
+    color: colors.secondary,
     fontFamily: 'Quicksand-Bold',
   },
   locationContent: { marginTop: 20, flexDirection: 'row', alignItems: 'center' },
@@ -66,8 +67,8 @@ export const animalStyles = StyleSheet.create({
     flexDirection: 'row',
   },
   heartIconContainer: {
-    padding: 10,
-    borderRadius: 100,
+    padding: 12,
+    borderRadius: 10,
   },
   adoptButtonContainer: {
     flexGrow: 1,
@@ -76,5 +77,4 @@ export const animalStyles = StyleSheet.create({
     borderRadius: 10,
     marginLeft: 10,
   },
-  heartsLottie: { position: 'absolute', right: -70, bottom: 0, width: 200, height: 200 },
 })

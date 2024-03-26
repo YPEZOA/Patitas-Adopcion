@@ -112,7 +112,9 @@ const AnimalProfileScreen = ({ route, navigation }: ScreenRouteProps) => {
             <IconF name="heart" color={colors.white} size={20} />
           </TouchableOpacity>
           <TouchableOpacity style={St.adoptButtonContainer}>
-            <Text style={[St.defaultText, { textAlign: 'center', color: colors.white }]}>
+            <Text
+              style={[St.defaultText, { textAlign: 'center', color: colors.white, fontSize: 18 }]}
+            >
               Adóptame
             </Text>
           </TouchableOpacity>

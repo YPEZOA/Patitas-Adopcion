@@ -31,9 +31,9 @@ const FilterResult: React.FC = () => {
             keyExtractor={item => item.id}
             showsVerticalScrollIndicator={false}
             data={states.animalsFiltered}
-            renderItem={({ item, i }: any) => (
+            renderItem={({ item, index }: any) => (
               <Pressable onPress={() => navigation.navigate('AnimalProfile', item)}>
-                <Animal data={item} index={i} />
+                <Animal data={item} index={index} />
               </Pressable>
             )}
             numColumns={2}

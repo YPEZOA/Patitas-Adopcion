@@ -87,8 +87,8 @@ export const favoriteStyles = StyleSheet.create({
     fontSize: 12,
   },
   heartIcon: {
-    padding: 5,
-    borderRadius: 100,
+    padding: 8,
+    borderRadius: 10,
     backgroundColor: '#ee6352',
     shadowOffset: {
       width: 0,
@@ -112,6 +112,18 @@ export const favoriteStyles = StyleSheet.create({
   },
   adoptButtonText: {
     color: colors.white,
+    textAlign: 'center',
+  },
+  withoutResultsContainer: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  withoutResultsText: {
+    color: colors.secondary,
+    fontSize: 46,
+    fontFamily: 'Quicksand-Bold',
     textAlign: 'center',
   },
 })

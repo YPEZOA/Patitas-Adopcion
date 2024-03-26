@@ -7,6 +7,7 @@ import { AnimalLiked } from '../../utils/models'
 import { useNavigation } from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/Feather'
 import colors from '../../UI/colors'
+import LogoBeta from '../../UI/Icons/LogoBeta'
 
 const AnimalsLikeScreen = () => {
   const [favorites, setFavorites] = useState([])
@@ -34,21 +35,28 @@ const AnimalsLikeScreen = () => {
         <TouchableOpacity onPress={() => navigation.goBack()} style={St.iconBack}>
           <Icon name="arrow-left" size={25} color={colors.primary} />
         </TouchableOpacity>
-        <Text style={St.headerTitle}>Favoritos</Text>
+        <Text style={St.headerTitle}>Tus favoritos</Text>
       </View>
       <View style={St.listContainer}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          contentContainerStyle={St.list}
-          data={favorites}
-          renderItem={({ item, index }) => (
-            <FavoritesItem
-              data={item}
-              index={index}
-              onHandleRemoveFavorite={handleRemoveFavorite}
-            />
-          )}
-        />
+        {favorites.length > 0 ? (
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            contentContainerStyle={St.list}
+            data={favorites}
+            renderItem={({ item, index }) => (
+              <FavoritesItem
+                data={item}
+                index={index}
+                onHandleRemoveFavorite={handleRemoveFavorite}
+              />
+            )}
+          />
+        ) : (
+          <View style={St.withoutResultsContainer}>
+            <LogoBeta width={200} height={200} />
+            <Text style={St.withoutResultsText}>Aún no tienes favoritos</Text>
+          </View>
+        )}
       </View>
     </View>
   )

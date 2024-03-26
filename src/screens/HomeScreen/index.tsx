@@ -19,16 +19,27 @@ const HomeScreen = () => {
   return (
     <HomeContext.Provider value={{ states, actions, setters }}>
       <StatusBar backgroundColor={colors.primary} />
-      <Pressable onPress={() => navigation.navigate('AnimalsLikes')}>
-        <Text>FAVORITES</Text>
-      </Pressable>
+      {/* <Pressable onPress={() =>  */}
+      {/*   <Text>FAVORITES</Text> */}
+      {/* </Pressable> */}
       <View style={St.containerMain}>
         {/* Header */}
         <View style={St.headerContainer}>
-          <LightLogoText width={160} height={70} />
-          <TouchableOpacity onPress={() => setters.setShowFiltersModal(true)} style={St.closeIcon}>
-            <IconF name="filter" size={22} color={colors.secondary} />
-          </TouchableOpacity>
+          <LightLogoText width={220} height={70} />
+          <View style={St.headerButtonsContainer}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('AnimalsLikes')}
+              style={St.closeIcon}
+            >
+              <IconF name="heart" size={30} color="#ee6352" />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => setters.setShowFiltersModal(true)}
+              style={St.closeIcon}
+            >
+              <IconF name="filter" size={30} color={colors.secondary} />
+            </TouchableOpacity>
+          </View>
         </View>
         {/* Animals list */}
         <View style={St.containerContent}>
