@@ -8,6 +8,7 @@ import Icon from 'react-native-vector-icons/SimpleLineIcons'
 import { favoriteStyles as St } from '../../styles'
 import { genderColor, genderIcon } from '../../../../UI/constants.helper'
 import colors from '../../../../UI/colors'
+import http from '../../../../utils/helpers/http.helper'
 
 interface FavoriteProps {
   index: number
@@ -39,12 +40,12 @@ const FavoritesItem = ({ index, data, onHandleRemoveFavorite }: FavoriteProps) =
         <View style={St.bottomContent}>
           <View>
             <Text style={St.state}>Estado: {estado === 'adopcion' ? 'adopción' : estado}</Text>
-            <Text style={St.location}>
+            <Text numberOfLines={1} style={St.location}>
               {comuna}, {region}
             </Text>
           </View>
           <View style={St.actionButtons}>
-            <TouchableOpacity style={St.adoptButton} onPress={() => onHandleRemoveFavorite(id)}>
+            <TouchableOpacity style={St.adoptButton} onPress={() => http.gotoAdoptUrl(id, nombre)}>
               <Text style={St.adoptButtonText}>Adóptame</Text>
             </TouchableOpacity>
 

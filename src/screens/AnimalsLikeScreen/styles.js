@@ -80,9 +80,13 @@ export const favoriteStyles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   state: {
+    color: colors.secondary,
     fontSize: 12,
   },
   location: {
+    color: colors.secondary,
+    flex: 1,
+    width: 112,
     marginTop: 2,
     fontSize: 12,
   },

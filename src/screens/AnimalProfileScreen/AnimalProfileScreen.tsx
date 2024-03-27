@@ -11,6 +11,7 @@ import { asideLabel, genderColor, genderIcon } from '../../UI/constants.helper'
 import Animated, { FadeInDown } from 'react-native-reanimated'
 
 import { animalByLiked, likedAnimal, unlikedAnimal } from '../../utils/storage/storage'
+import http from '../../utils/helpers/http.helper'
 
 const AnimalProfileScreen = ({ route, navigation }: ScreenRouteProps) => {
   const {
@@ -111,7 +112,10 @@ const AnimalProfileScreen = ({ route, navigation }: ScreenRouteProps) => {
           >
             <IconF name="heart" color={colors.white} size={20} />
           </TouchableOpacity>
-          <TouchableOpacity style={St.adoptButtonContainer}>
+          <TouchableOpacity
+            style={St.adoptButtonContainer}
+            onPress={() => http.gotoAdoptUrl(id, nombre)}
+          >
             <Text
               style={[St.defaultText, { textAlign: 'center', color: colors.white, fontSize: 18 }]}
             >
