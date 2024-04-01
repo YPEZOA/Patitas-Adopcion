@@ -1,6 +1,13 @@
 pipeline{
   agent any
   stages {
+      stage('Install Deps'){
+          steps{
+              dir('build_node'){
+                  sh "npm install"
+                }
+            }
+        }
       stage('Build'){
           steps{
               echo "Etapa build no disponible"
@@ -8,12 +15,11 @@ pipeline{
       }
       stage("Test"){
           steps{
-              echo "## Install dependecies ##"
-              yarn install
-
+            dir('build_node'){
               echo "## Run tests ##"
-              yarn run test
+              npm run test
             }
+          }
       }
       stage("Deploy"){
           steps{
