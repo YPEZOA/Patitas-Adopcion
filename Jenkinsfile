@@ -8,7 +8,11 @@ pipeline{
       }
       stage("Test"){
           steps{
-              echo "Etapa test no disponible"
+              echo "## Install dependecies ##"
+              npm install
+
+              echo "## Run tests ##"
+              npm run test
             }
       }
       stage("Deploy"){
