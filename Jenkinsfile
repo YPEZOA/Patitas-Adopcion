@@ -4,7 +4,7 @@ pipeline{
       stage('Install Deps'){
           steps{
               dir('build_node'){
-                  sh "npm install"
+                  sh 'npm install'
                 }
             }
         }
@@ -17,7 +17,7 @@ pipeline{
           steps{
             dir('build_node'){
               echo "## Run tests ##"
-              npm run test
+              sh 'npm run test'
             }
           }
       }
