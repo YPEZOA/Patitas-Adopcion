@@ -1,12 +1,22 @@
-node {
-  stage('checkout') {
-     checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/YPEZOA/HuachitosApp']])
-  }
-  stage('Print files') {
-    sh 'echo "Hello World"'
-    sh 'ls -la'
-  }
-
-}
+pipeline(
+  agent any 
+  stages {
+      stage ('Build'){
+          step{
+              echo "Etapa build no disponible"
+            }
+      }
+      stage ("Test"){
+          step{
+              echo "Etapa test no disponible"
+            }
+      }
+      stage ("Deploy"){
+          steps{
+            echo "Aqui los comandos para lo que queremos"
+            }
+        }
+    }
+)
 
 
