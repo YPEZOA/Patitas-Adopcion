@@ -9,10 +9,10 @@ pipeline{
       stage("Test"){
           steps{
               echo "## Install dependecies ##"
-              yarn npm install
+              yarn install
 
               echo "## Run tests ##"
-              yarn npm run test
+              yarn run test
             }
       }
       stage("Deploy"){
