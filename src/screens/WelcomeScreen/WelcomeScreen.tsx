@@ -14,7 +14,7 @@ import LogoWithTag from '../../UI/Icons/LogoWithTag'
 
 const WelcomeScreen = () => {
   const rotate = useSharedValue(5)
-  const navigation = useNavigation<any>()
+  const navigation = useNavigation()
   const animatedStyles = useAnimatedStyle(() => {
     return {
       transform: [{ rotate: `${rotate.value}deg` }],

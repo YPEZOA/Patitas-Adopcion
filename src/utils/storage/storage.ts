@@ -3,8 +3,18 @@ import { AnimalLiked } from '../models'
 
 const jsonStr = (value: any) => JSON.stringify(value)
 
-export const getLikedsList = async () =>
-  JSON.parse((await AsyncStorage.getItem('liked-animal')) || '[]')
+export const getLikedsList = async () => {
+  try {
+    const list = JSON.parse((await AsyncStorage.getItem('liked-animal')) || '[]')
+
+    if (!list.length) {
+      return
+    }
+    return list
+  } catch (error) {
+    console.log(error)
+  }
+}
 
 export const likedAnimal = async (value: AnimalLiked) => {
   const animalsList = await getLikedsList()
@@ -20,7 +30,6 @@ export const unlikedAnimal = async (id: number) => {
   const animalsList = await getLikedsList()
   try {
     const alreadyLiked = animalsList.find((item: AnimalLiked) => item.id === id)
-
     if (alreadyLiked) {
       const data = jsonStr(animalsList.filter((item: AnimalLiked) => item.id !== id))
       return await AsyncStorage.setItem('liked-animal', data)

@@ -1,5 +1,5 @@
 import React from 'react'
-import { TouchableOpacity, View, StatusBar, Pressable, Text } from 'react-native'
+import { TouchableOpacity, View, StatusBar } from 'react-native'
 import { homeScreen as St } from './styles'
 import { HomeContext } from './context'
 import useHome from './useHome'
@@ -19,9 +19,6 @@ const HomeScreen = () => {
   return (
     <HomeContext.Provider value={{ states, actions, setters }}>
       <StatusBar backgroundColor={colors.primary} />
-      {/* <Pressable onPress={() =>  */}
-      {/*   <Text>FAVORITES</Text> */}
-      {/* </Pressable> */}
       <View style={St.containerMain}>
         {/* Header */}
         <View style={St.headerContainer}>
