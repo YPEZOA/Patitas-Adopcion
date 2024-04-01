@@ -1,16 +1,16 @@
 pipeline{
   stages {
-      stage ('Build'){
-          step{
+      stage('Build'){
+          steps{
               echo "Etapa build no disponible"
             }
       }
-      stage ("Test"){
-          step{
+      stage("Test"){
+          steps{
               echo "Etapa test no disponible"
             }
       }
-      stage ("Deploy"){
+      stage("Deploy"){
           steps{
             echo "Aqui los comandos para lo que queremos"
             }
