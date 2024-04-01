@@ -9,15 +9,15 @@ pipeline{
       stage("Test"){
           steps{
               echo "## Install dependecies ##"
-              npm install
+              sh npm install
 
               echo "## Run tests ##"
-              npm run test
+              sh npm run test
             }
       }
       stage("Deploy"){
           steps{
-            echo "Aqui los comandos para lo que queremos"
+             echo "Aqui los comandos para lo que queremos"
             }
         }
     }
