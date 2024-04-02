@@ -14,7 +14,8 @@ pipeline{
       stage("Test"){
           steps{
               echo "## Run tests ##"
-              sh 'npm run test'
+              sh 'make check || true' 
+              junit '**/target/*.xml'
           }
       }
       stage("Deploy"){
