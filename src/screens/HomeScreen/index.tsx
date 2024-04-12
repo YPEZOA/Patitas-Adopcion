@@ -25,12 +25,14 @@ const HomeScreen = () => {
           <LightLogoText width={220} height={70} />
           <View style={St.headerButtonsContainer}>
             <TouchableOpacity
+              accessibilityLabel="Ir a favoritos"
               onPress={() => navigation.navigate('AnimalsLikes')}
               style={St.closeIcon}
             >
               <IconF name="heart" size={30} color="#ee6352" />
             </TouchableOpacity>
             <TouchableOpacity
+              accessibilityLabel="Abrir filtros"
               onPress={() => setters.setShowFiltersModal(true)}
               style={St.closeIcon}
             >

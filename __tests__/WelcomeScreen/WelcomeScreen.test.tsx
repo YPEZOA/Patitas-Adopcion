@@ -1,10 +1,17 @@
 import React from 'react'
-import renderer from 'react-test-renderer'
+import { fireEvent, render, screen } from '@testing-library/react-native'
 import WelcomeScreen from '../../src/screens/WelcomeScreen/WelcomeScreen'
 
 describe('<WelcomeScreen/> test', () => {
-  test('Should by render correctly', () => {
-    const container = renderer.create(<WelcomeScreen />)
+  test('Should be render correctly', () => {
+    const container = render(<WelcomeScreen />).toJSON()
     expect(container).toMatchSnapshot()
+  })
+
+  test('Should be render button', () => {
+    render(<WelcomeScreen />)
+    const button = screen.getByText('Encuentra animales')
+    fireEvent.press(button)
+    expect(button).toBeDefined()
   })
 })

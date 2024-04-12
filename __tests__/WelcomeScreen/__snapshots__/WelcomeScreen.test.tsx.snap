@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should by render correctly 1`] = `
+exports[`<WelcomeScreen/> test Should be render correctly 1`] = `
 <View
   accessibilityIgnoresInvertColors={true}
   style={

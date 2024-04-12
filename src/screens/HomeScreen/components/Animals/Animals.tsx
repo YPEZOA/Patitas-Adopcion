@@ -19,13 +19,17 @@ const Animals = () => {
       ) : (
         <View style={St.container}>
           <MasonryList
+            testID="animals-list"
             ListHeaderComponent={<Text style={St.titleList}>Esperan por ti</Text>}
             refreshControl={false}
             keyExtractor={item => item.id}
             showsVerticalScrollIndicator={false}
             data={!states.filterResultLength ? states.allAnimals : states.animalsFiltered}
             renderItem={({ item, index }: any) => (
-              <Pressable onPress={() => navigation.navigate('AnimalProfile', item)}>
+              <Pressable
+                testID="animal-profile-navigate"
+                onPress={() => navigation.navigate('AnimalProfile', item)}
+              >
                 <Animal data={item} index={index} />
               </Pressable>
             )}
