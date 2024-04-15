@@ -1,11 +1,13 @@
 pipeline {
     agent any
+    tools {
+        nodejs "node"
+    }
 
     stages {
         stage('Build') {
             steps {
                 echo 'Building..'
-                withNPM(npmrcConfig:'my-custom-npmrc') {
                 sh 'npm install'
         }
             }
