@@ -41,6 +41,8 @@ export const unlikedAnimal = async (id: number) => {
 
 export const animalByLiked = async (id: number) => {
   const animalsLikedList = await getLikedsList()
-  const isLiked = await animalsLikedList.find((item: AnimalLiked) => item.id === id)
+  console.log(animalsLikedList, 'likedsList')
+  const isLiked = animalsLikedList.find((item: AnimalLiked) => item.id === id)
+  console.log(isLiked)
   return !!isLiked
 }

@@ -14,20 +14,19 @@ const AnimalsLikeScreen = () => {
 
   const navigation = useNavigation()
 
-  const getFavorites = useCallback(async () => {
-    const storage = await getLikedsList()
-    setFavorites(storage.reverse())
-  }, [])
-
-  const handleRemoveFavorite = async (id: number) => {
+  const handleRemoveFavorite = (id: number) => {
     const newFavorites = favorites.filter((item: AnimalLiked) => item.id !== id)
     unlikedAnimal(id)
     setFavorites(newFavorites)
   }
 
   useEffect(() => {
+    async function getFavorites() {
+      const storage = await getLikedsList()
+      setFavorites(storage?.reverse())
+    }
     getFavorites()
-  }, [getFavorites])
+  }, [])
 
   return (
     <View style={St.containerMain}>
@@ -38,7 +37,12 @@ const AnimalsLikeScreen = () => {
         <Text style={St.headerTitle}>Tus favoritos</Text>
       </View>
       <View style={St.listContainer}>
-        {favorites.length > 0 ? (
+        {!favorites?.length ? (
+          <View style={St.withoutResultsContainer}>
+            <LogoBeta width={200} height={200} />
+            <Text style={St.withoutResultsText}>Aún no tienes favoritos</Text>
+          </View>
+        ) : (
           <FlatList
             showsVerticalScrollIndicator={false}
             contentContainerStyle={St.list}
@@ -51,11 +55,6 @@ const AnimalsLikeScreen = () => {
               />
             )}
           />
-        ) : (
-          <View style={St.withoutResultsContainer}>
-            <LogoBeta width={200} height={200} />
-            <Text style={St.withoutResultsText}>Aún no tienes favoritos</Text>
-          </View>
         )}
       </View>
     </View>

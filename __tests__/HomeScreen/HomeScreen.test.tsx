@@ -72,7 +72,7 @@ describe('<HomeScreen/> test', () => {
       .spyOn(api, 'getAllAnimals')
       .mockImplementation(() => Promise.resolve({ data: animals }))
 
-    const { getAllByTestId, debug } = render(<HomeScreen />)
+    const { getAllByTestId } = render(<HomeScreen />)
     await waitFor(() => expect(fetchingSpy).toHaveBeenCalledTimes(1))
 
     const animalProfileNavigate = getAllByTestId('animal-profile-navigate')[0]
