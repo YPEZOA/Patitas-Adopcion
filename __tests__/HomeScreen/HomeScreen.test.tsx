@@ -15,6 +15,7 @@ jest.mock('@react-navigation/native', () => {
     }),
   }
 })
+
 describe('<HomeScreen/> test', () => {
   afterEach(() => jest.clearAllMocks())
   test('Should by render correctly', () => {
@@ -60,7 +61,7 @@ describe('<HomeScreen/> test', () => {
       .spyOn(api, 'getAllAnimals')
       .mockImplementation(() => Promise.resolve({ data: animals }))
 
-    const { getByTestId, getAllByTestId, debug } = render(<HomeScreen />)
+    const { getByTestId, getAllByTestId } = render(<HomeScreen />)
     await waitFor(() => expect(fetchingSpy).toHaveBeenCalledTimes(1))
 
     expect(getByTestId('animals-list')).toBeTruthy()

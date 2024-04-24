@@ -29,7 +29,7 @@ const WelcomeScreen = () => {
     <ImageBackground source={require('../../../assets/images/back4.jpeg')} style={{ flex: 1 }}>
       <View style={St.container}>
         <Animated.View style={animatedStyles}>
-          <LogoBeta width={150} height={150} />
+          <LogoBeta />
         </Animated.View>
         <View style={St.containerMain}>
           <LogoWithTag width={300} height={100} />

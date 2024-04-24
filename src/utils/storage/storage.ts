@@ -17,7 +17,7 @@ export const getLikedsList = async () => {
 }
 
 export const likedAnimal = async (value: AnimalLiked) => {
-  const animalsList = await getLikedsList()
+  const animalsList = (await getLikedsList()) || []
   try {
     const dataToSet = jsonStr([...animalsList, value])
     return await AsyncStorage.setItem('liked-animal', dataToSet)
@@ -40,9 +40,10 @@ export const unlikedAnimal = async (id: number) => {
 }
 
 export const animalByLiked = async (id: number) => {
-  const animalsLikedList = await getLikedsList()
-  console.log(animalsLikedList, 'likedsList')
-  const isLiked = animalsLikedList.find((item: AnimalLiked) => item.id === id)
-  console.log(isLiked)
-  return !!isLiked
+  const animalsLikedList = (await getLikedsList()) || []
+  if (animalByLiked.length > 0) {
+    const isLiked = animalsLikedList.find((item: AnimalLiked) => item.id === id)
+    return !!isLiked
+  }
+  return false
 }

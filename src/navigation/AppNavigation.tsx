@@ -31,15 +31,7 @@ const AppNavigation = () => {
           }}
         />
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen
-          name="AnimalProfile"
-          component={AnimalProfileScreen}
-          options={{
-            statusBarAnimation: 'slide',
-            animation: 'slide_from_right',
-            statusBarHidden: true,
-          }}
-        />
+        <Stack.Screen name="AnimalProfile" component={AnimalProfileScreen} />
         <Stack.Screen name="AnimalsLikes" component={AnimalsLikeScreen} />
       </Stack.Navigator>
     </NavigationContainer>

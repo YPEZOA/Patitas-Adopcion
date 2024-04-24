@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { View, FlatList, Text, TouchableOpacity } from 'react-native'
 import FavoritesItem from './components/FavoritesItem/FavoritesItem'
 import { getLikedsList, unlikedAnimal } from '../../utils/storage/storage'
@@ -39,7 +39,7 @@ const AnimalsLikeScreen = () => {
       <View style={St.listContainer}>
         {!favorites?.length ? (
           <View style={St.withoutResultsContainer}>
-            <LogoBeta width={200} height={200} />
+            <LogoBeta />
             <Text style={St.withoutResultsText}>Aún no tienes favoritos</Text>
           </View>
         ) : (
