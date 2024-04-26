@@ -54,6 +54,7 @@ const Filters = () => {
           {types.map((type: string) => (
             <Animated.View entering={enteringOS} key={type}>
               <TouchableOpacity
+                accessibilityLabel={type}
                 testID="animalType"
                 disabled={states.animalTypeSelected === type || states.fetching}
                 onPress={() => handleTypeSelected(type)}

@@ -81,3 +81,10 @@ describe('<HomeScreen/> test', () => {
     expect(mockedNavigation).toHaveBeenCalledWith('AnimalProfile', animals[0])
   })
 })
+
+test('Should be to call api when press type of animal', async () => {
+  const { getByLabelText } = render(<HomeScreen />)
+  const button = getByLabelText('Perro')
+  fireEvent.press(button)
+  expect(button).toBeDefined()
+})

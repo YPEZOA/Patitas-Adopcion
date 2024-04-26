@@ -37,12 +37,7 @@ const AnimalsLikeScreen = () => {
         <Text style={St.headerTitle}>Tus favoritos</Text>
       </View>
       <View style={St.listContainer}>
-        {!favorites?.length ? (
-          <View style={St.withoutResultsContainer}>
-            <LogoBeta />
-            <Text style={St.withoutResultsText}>Aún no tienes favoritos</Text>
-          </View>
-        ) : (
+        {favorites?.length > 0 ? (
           <FlatList
             showsVerticalScrollIndicator={false}
             contentContainerStyle={St.list}
@@ -55,6 +50,11 @@ const AnimalsLikeScreen = () => {
               />
             )}
           />
+        ) : (
+          <View style={St.withoutResultsContainer}>
+            <LogoBeta />
+            <Text style={St.withoutResultsText}>Aún no tienes favoritos</Text>
+          </View>
         )}
       </View>
     </View>
