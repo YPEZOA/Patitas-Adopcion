@@ -55,7 +55,7 @@ const useHome = () => {
       get getAvailableCommunes() {
         return filterParameters.region.comunas
       },
-      get anyFilterSelected() {
+      anyFilterSelected() {
         return filterParameters !== initialState
       },
       get filterResultLength() {

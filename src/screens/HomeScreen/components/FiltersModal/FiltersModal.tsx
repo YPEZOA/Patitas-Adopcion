@@ -31,7 +31,7 @@ const FiltersModal = () => {
 
   return (
     <ReactNativeModal isVisible={states.showFiltersModal} style={{ margin: 0 }}>
-      <View style={St.contentContainer}>
+      <View style={St.contentContainer} testID="filters-modal">
         <View>
           <View style={St.headerContainer}>
             <View style={St.filterIconContainer}>
@@ -50,6 +50,7 @@ const FiltersModal = () => {
                 const shadowStyle = isActive(animalState) ? St.shadowOption : {}
                 return (
                   <TouchableOpacity
+                    testID="animal-state"
                     key={animalState}
                     onPress={() =>
                       setters.setFilterParameters({
@@ -110,6 +111,7 @@ const FiltersModal = () => {
         </View>
         {/* Submit filter button */}
         <TouchableOpacity
+          testID="apply-filters"
           disabled={states.fetching || !states.anyFilterSelected}
           onPress={() => onHandleSubmit()}
           style={[St.filterSubmitContainer, { opacity: !states.anyFilterSelected ? 0.8 : 1 }]}
