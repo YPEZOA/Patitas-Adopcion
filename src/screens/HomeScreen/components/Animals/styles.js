@@ -4,7 +4,8 @@ import colors from '../../../../UI/colors'
 export const animalsStyles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: 20,
+    marginTop: 10,
+    paddingHorizontal: 5,
   },
   loaderContainer: {
     flex: 1,

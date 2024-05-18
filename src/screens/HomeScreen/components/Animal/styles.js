@@ -5,18 +5,18 @@ export const animalStyles = StyleSheet.create({
   box: {
     backgroundColor: colors.white,
     borderRadius: 30,
-    width: '100%',
     display: 'flex',
     justifyContent: 'center',
     marginBottom: 10,
-    padding: 5,
-    paddingBottom: 15,
+    padding: 10,
   },
   image: {
+    height: 350,
     borderRadius: 30,
     backgroundColor: colors.secondary,
   },
   infoContainer: {
+    paddingHorizontal: 10,
     marginTop: 10,
     display: 'flex',
     alignItems: 'flex-start',

@@ -12,7 +12,8 @@ export const getAllAnimals = () => {
 
 export const getAnimalsByType = (type: string) => {
   try {
-    return http.get(`${URI}/animales/tipo/${type}`)
+    const typeLower = type.toLowerCase()
+    return http.get(`${URI}/animales/tipo/${typeLower}`)
   } catch (error) {
     console.error(error)
   }

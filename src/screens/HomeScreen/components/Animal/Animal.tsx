@@ -15,24 +15,22 @@ interface Props {
 
 const Animal = ({ data, index }: Props) => {
   const { nombre, comuna, imagen, genero, region } = data
-  const isEven = index % 2 === 0
 
   return (
     <Animated.View
       testID="animal"
-      entering={FadeInDown.delay(index * 100)
+      entering={FadeInDown.delay(index * 10)
         .duration(500)
         .springify()
         .damping(12)}
     >
       <View style={St.box}>
         <Image
-          progressiveRenderingEnabled
-          style={[St.image, { height: index % 3 === 0 ? 230 : 300 }]}
+          style={St.image}
           source={{ uri: imagen }}
           defaultSource={require('../../../../../assets/images/back4.jpeg')}
         />
-        <View style={[St.infoContainer, { marginLeft: isEven ? 0 : 6 }]}>
+        <View style={St.infoContainer}>
           <View style={St.infoContent}>
             <View style={St.nameSection}>
               <Text style={St.nameText}>{nombre}</Text>

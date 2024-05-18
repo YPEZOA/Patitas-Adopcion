@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { View, Text, TouchableOpacity, Pressable, FlatList } from 'react-native'
-import { HomeContext } from '../../context'
 import ReactNativeModal from 'react-native-modal'
 import CollapsePanel from '../../../../components/Collapsible/Collapsible'
 import Selectable from '../../../../components/Selectable/Selectable'
@@ -10,14 +9,21 @@ import IconI from 'react-native-vector-icons/Ionicons'
 import { filtersModal as St } from './styles'
 import { selectableStyles as SSt } from '../../../../components/Selectable/styles'
 import colors from '../../../../UI/colors'
+import useFiltersModal from './useFilterModal'
+import { HomeContext } from '../../context'
 
 const FiltersModal = () => {
-  const { states, setters, actions } = useContext(HomeContext)
-  const { state } = states.filterParameters
+  const { states, setters } = useContext(HomeContext)
+  const { filterStates, filterSetters, actions } = useFiltersModal()
+  const { state } = filterStates.filterParameters
 
   const animalStates = ['adopcion', 'encontrado', 'perdido']
 
   const isActive = (animalState: string) => state === animalState
+
+  const onHandleSelectionItem = (item: any) => {
+    filterSetters.setFilterParameters({ ...filterStates.filterParameters, region: item })
+  }
 
   const onCloseModal = () => {
     setters.setShowFiltersModal(false)
@@ -26,7 +32,6 @@ const FiltersModal = () => {
   const onHandleSubmit = () => {
     actions.getAnimalsByFiltered()
     setters.setShowFiltersModal(false)
-    setters.setFilterSubmited(true)
   }
 
   return (
@@ -52,12 +57,12 @@ const FiltersModal = () => {
                   <TouchableOpacity
                     testID="animal-state"
                     key={animalState}
-                    onPress={() =>
-                      setters.setFilterParameters({
-                        ...states.filterParameters,
+                    onPress={() => {
+                      filterSetters.setFilterParameters({
+                        ...filterStates.filterParameters,
                         state: animalState,
                       })
-                    }
+                    }}
                     style={[
                       shadowStyle,
                       St.option,
@@ -82,22 +87,25 @@ const FiltersModal = () => {
           {/* Animals filter by region and comuna */}
           <View>
             <CollapsePanel title="Región">
-              <Selectable data={regions} />
+              <Selectable data={regions} onHandleSelection={onHandleSelectionItem} />
             </CollapsePanel>
             <CollapsePanel title="Comuna">
-              {states.getAvailableCommunes?.length ? (
+              {filterStates.getAvailableCommunes?.length ? (
                 <FlatList
-                  data={states.getAvailableCommunes}
-                  renderItem={({ item }) => (
+                  data={filterStates.getAvailableCommunes}
+                  renderItem={({ item }: any) => (
                     <TouchableOpacity
                       style={SSt.itemContainer}
                       key={item.id}
                       onPress={() =>
-                        setters.setFilterParameters({ ...states.filterParameters, comuna: item.id })
+                        filterSetters.setFilterParameters({
+                          ...filterStates.filterParameters,
+                          comuna: item.id,
+                        })
                       }
                     >
                       <Text style={SSt.itemText}>{item.name}</Text>
-                      {states.filterParameters.comuna === item.id && (
+                      {filterStates.filterParameters.comuna === item.id && (
                         <IconF name="check" size={20} color={colors.primary} />
                       )}
                     </TouchableOpacity>
@@ -112,9 +120,9 @@ const FiltersModal = () => {
         {/* Submit filter button */}
         <TouchableOpacity
           testID="apply-filters"
-          disabled={states.fetching || !states.anyFilterSelected}
+          disabled={states.fetching || !filterStates.anyFilterSelected}
           onPress={() => onHandleSubmit()}
-          style={[St.filterSubmitContainer, { opacity: !states.anyFilterSelected ? 0.8 : 1 }]}
+          style={[St.filterSubmitContainer, { opacity: !filterStates.anyFilterSelected ? 0.8 : 1 }]}
         >
           <Text style={St.filterSubmitText}>aplicar</Text>
         </TouchableOpacity>

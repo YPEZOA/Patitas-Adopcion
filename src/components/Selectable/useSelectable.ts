@@ -8,8 +8,8 @@ const useSelectable = () => {
   })
 
   return {
-    states: { itemSelected },
-    setters: { setItemSelected },
+    selectableStates: { itemSelected },
+    selectableSetters: { setItemSelected },
   }
 }
 
