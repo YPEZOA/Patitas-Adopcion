@@ -20,7 +20,7 @@ const Animal = ({ data, index }: Props) => {
     <Animated.View
       testID="animal"
       entering={FadeInDown.delay(index * 10)
-        .duration(500)
+        .duration(200)
         .springify()
         .damping(12)}
     >

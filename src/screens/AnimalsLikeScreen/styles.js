@@ -125,8 +125,9 @@ export const favoriteStyles = StyleSheet.create({
     justifyContent: 'center',
   },
   withoutResultsText: {
+    paddingHorizontal: 10,
     color: colors.secondary,
-    fontSize: 46,
+    fontSize: 40,
     fontFamily: 'Quicksand-Bold',
     textAlign: 'center',
   },

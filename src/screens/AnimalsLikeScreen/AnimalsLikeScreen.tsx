@@ -53,7 +53,7 @@ const AnimalsLikeScreen = () => {
         ) : (
           <View style={St.withoutResultsContainer}>
             <LogoBeta />
-            <Text style={St.withoutResultsText}>Aún no tienes favoritos</Text>
+            <Text style={St.withoutResultsText}>Guarda aquí los animales que te gusten!</Text>
           </View>
         )}
       </View>

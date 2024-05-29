@@ -54,13 +54,13 @@ const useFiltersModal = () => {
           setters.setFilterSubmited(true)
           setFilterParameters(initialState)
         } else {
-          const regionSelected = filterPayload.region !== null
-          const stateSelected = filterPayload.state !== ''
+          const isRegionSelected = filterPayload.region !== null
+          const isStateSelected = filterPayload.state !== ''
           const animalsFilteredBySelection = await getAnimalsByFilters(
             `${
-              regionSelected && stateSelected
+              isRegionSelected && isStateSelected
                 ? `region/${region}/estado/${state}`
-                : regionSelected
+                : isRegionSelected
                 ? `region/${region}`
                 : `estado/${state}`
             }`

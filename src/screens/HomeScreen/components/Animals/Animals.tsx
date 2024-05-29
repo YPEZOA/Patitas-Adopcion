@@ -22,7 +22,7 @@ const Animals = () => {
             ListHeaderComponent={<Text style={St.titleList}>Esperan por ti</Text>}
             keyExtractor={item => item.id}
             showsVerticalScrollIndicator={false}
-            data={states.animalsFiltered.length > 0 ? states.animalsFiltered : states.allAnimals}
+            data={states.animalsFiltered?.length > 0 ? states.animalsFiltered : states.allAnimals}
             renderItem={({ item, index }: any) => (
               <Pressable
                 testID="animal-profile-navigate"
