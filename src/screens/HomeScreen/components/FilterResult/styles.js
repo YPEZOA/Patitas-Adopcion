@@ -9,11 +9,12 @@ export const filterResultStyles = StyleSheet.create({
   },
   filterList: {
     flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent: 'space-between',
     marginBottom: 10,
     paddingTop: 20,
     paddingHorizontal: 20,
+    gap: 20,
   },
   deleteFilter: { backgroundColor: colors.primary, borderRadius: 7, padding: 1 },
 })

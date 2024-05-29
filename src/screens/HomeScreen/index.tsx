@@ -32,8 +32,8 @@ const HomeScreen = () => {
               <IconF name="heart" size={30} color="#ee6352" />
             </TouchableOpacity>
             <TouchableOpacity
-              testID="open-filters"
               accessibilityLabel="Abrir filtros"
+              testID="open-filters"
               onPress={() => setters.setShowFiltersModal(true)}
               style={St.closeIcon}
             >

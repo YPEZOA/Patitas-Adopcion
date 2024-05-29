@@ -34,7 +34,7 @@ const WelcomeScreen = () => {
         <View style={St.containerMain}>
           <LogoWithTag width={300} height={100} />
         </View>
-        <Animated.View entering={FadeInDown.delay(100).springify().damping(12).duration(1200)}>
+        <Animated.View entering={FadeInDown.springify().damping(12)}>
           <TouchableOpacity style={St.nextStepButton} onPress={() => navigation.navigate('Home')}>
             <Text style={St.nextStepButtonText}>Encuentra animales</Text>
           </TouchableOpacity>

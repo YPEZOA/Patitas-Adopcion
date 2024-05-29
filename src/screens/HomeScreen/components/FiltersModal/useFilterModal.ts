@@ -34,7 +34,7 @@ const useFiltersModal = () => {
     filterSetters: {
       setFilterParameters,
     },
-    actions: {
+    filterActions: {
       resetFilter,
       getAnimalsByFiltered: fetchWrap(async () => {
         const filterPayload = {

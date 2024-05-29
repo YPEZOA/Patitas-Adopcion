@@ -10,8 +10,15 @@ import IsLoading from '../../../../components/IsLoading/IsLoading'
 import colors from '../../../../UI/colors'
 
 const FilterResult = () => {
-  const { states, setters } = useContext(HomeContext)
+  const { states, setters, actions } = useContext(HomeContext)
   const navigation = useNavigation()
+
+  const handleResetFilter = () => {
+    setters.setAnimalTypeSelected('Perro')
+    actions.filterAnimalsByType('perro')
+    setters.setFilterSubmited(false)
+    setters.setAnimalsFiltered([])
+  }
 
   return (
     <IsLoading isLoading={states.fetching}>
@@ -22,10 +29,7 @@ const FilterResult = () => {
             ListHeaderComponent={
               <View style={St.filterList}>
                 <Text style={St.titleList}>Resultados del filtro</Text>
-                <TouchableOpacity
-                  style={St.deleteFilter}
-                  onPress={() => setters.setAnimalsFiltered([])}
-                >
+                <TouchableOpacity style={St.deleteFilter} onPress={handleResetFilter}>
                   <Icon name="close-outline" size={25} color={colors.white} />
                 </TouchableOpacity>
               </View>

@@ -20,6 +20,7 @@ const CollapsePanel = ({ title, children }: CollapsiblePanelProps) => {
             borderBottomWidth: collapsed ? 1 : 0,
           },
         ]}
+        onBlur={() => setCollapsed(!collapsed)}
         onPress={() => setCollapsed(!collapsed)}
       >
         <View style={[St.pressCollapsableHeader, { paddingHorizontal: !collapsed ? 10 : 0 }]}>

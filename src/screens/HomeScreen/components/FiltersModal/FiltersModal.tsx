@@ -3,18 +3,18 @@ import { View, Text, TouchableOpacity, Pressable, FlatList } from 'react-native'
 import ReactNativeModal from 'react-native-modal'
 import CollapsePanel from '../../../../components/Collapsible/Collapsible'
 import Selectable from '../../../../components/Selectable/Selectable'
-import { regions } from '../../../../config/data'
 import IconF from 'react-native-vector-icons/Feather'
 import IconI from 'react-native-vector-icons/Ionicons'
 import { filtersModal as St } from './styles'
 import { selectableStyles as SSt } from '../../../../components/Selectable/styles'
+import { regions } from '../../../../config/data'
 import colors from '../../../../UI/colors'
 import useFiltersModal from './useFilterModal'
 import { HomeContext } from '../../context'
 
 const FiltersModal = () => {
   const { states, setters } = useContext(HomeContext)
-  const { filterStates, filterSetters, actions } = useFiltersModal()
+  const { filterStates, filterSetters, filterActions } = useFiltersModal()
   const { state } = filterStates.filterParameters
 
   const animalStates = ['adopcion', 'encontrado', 'perdido']
@@ -30,7 +30,7 @@ const FiltersModal = () => {
   }
 
   const onHandleSubmit = () => {
-    actions.getAnimalsByFiltered()
+    filterActions.getAnimalsByFiltered()
     setters.setShowFiltersModal(false)
   }
 
@@ -112,13 +112,15 @@ const FiltersModal = () => {
                   )}
                 />
               ) : (
-                <Text>Debe seleccionar una región</Text>
+                <Text style={{ color: colors.secondary }}>Debe seleccionar una región</Text>
               )}
             </CollapsePanel>
           </View>
         </View>
         {/* Submit filter button */}
         <TouchableOpacity
+          accessible
+          accessibilityLabel="aplicar filtros"
           testID="apply-filters"
           disabled={states.fetching || !filterStates.anyFilterSelected}
           onPress={() => onHandleSubmit()}
