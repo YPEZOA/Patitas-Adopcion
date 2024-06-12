@@ -37,13 +37,13 @@ export const animalStyles = StyleSheet.create({
   },
   nameText: {
     color: colors.secondary,
-    fontSize: 16,
+    fontSize: 20,
     fontFamily: 'Quicksand-Bold',
     textTransform: 'uppercase',
   },
   locationText: {
     color: colors.neutralText,
-    fontSize: 13,
+    fontSize: 16,
   },
   nameSection: {
     width: '100%',

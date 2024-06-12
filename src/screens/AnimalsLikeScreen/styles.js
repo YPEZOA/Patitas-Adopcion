@@ -1,15 +1,17 @@
-import { StyleSheet } from 'react-native'
+import { Platform, StyleSheet } from 'react-native'
 import colors from '../../UI/colors'
 
 export const favoriteStyles = StyleSheet.create({
-  containerMain: { flex: 1, backgroundColor: colors.primary },
+  containerMain: {
+    flex: 1, backgroundColor: colors.primary, paddingTop: Platform.OS === 'ios' ? 40 : 10,
+  },
   listContainer: {
     backgroundColor: colors.white,
     flex: 1,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     paddingVertical: 20,
-    marginTop: 10,
+    marginTop: 10
   },
   headerContainer: {
     flexDirection: 'row',

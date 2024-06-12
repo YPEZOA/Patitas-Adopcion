@@ -34,7 +34,7 @@ const Animal = ({ data, index }: Props) => {
           <View style={St.infoContent}>
             <View style={St.nameSection}>
               <Text style={St.nameText}>{nombre}</Text>
-              <IconS name={genderIcon(genero || '')} color={genderColor(genero || '')} size={20} />
+              <IconS name={genderIcon(genero || '')} color={genderColor(genero || '')} size={25} />
             </View>
             <View style={St.location}>
               <Icon name="location-outline" size={20} color={colors.neutralText} />
