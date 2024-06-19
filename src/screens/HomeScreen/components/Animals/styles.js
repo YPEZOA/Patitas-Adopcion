@@ -23,6 +23,6 @@ export const animalsStyles = StyleSheet.create({
     marginBottom: 14,
     fontSize: 26,
     fontFamily: 'Quicksand-Bold',
-    color: colors.secondary,
+    color: colors.darkText,
   },
 })

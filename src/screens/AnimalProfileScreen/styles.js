@@ -49,17 +49,17 @@ export const animalStyles = StyleSheet.create({
   name: {
     fontSize: 20,
     fontFamily: 'Quicksand-Bold',
-    color: colors.secondary,
+    color: colors.darkText,
     textTransform: 'capitalize',
   },
   infoContainer: { marginTop: 10, flexDirection: 'row', justifyContent: 'space-between' },
   defaultText: {
-    color: colors.secondary,
+    color: colors.neutralText,
     fontFamily: 'Quicksand-Bold',
   },
   locationContent: { marginTop: 20, flexDirection: 'row', alignItems: 'center' },
   descriptionsContainer: { flexDirection: 'column', gap: 10, marginTop: 20 },
-  descriptionsText: { color: colors.secondary, lineHeight: 18 },
+  descriptionsText: { color: colors.darkText, lineHeight: 18 },
   actionsContainer: {
     paddingTop: 10,
     paddingBottom: isIOS ? 25 : 10,
@@ -67,14 +67,14 @@ export const animalStyles = StyleSheet.create({
     flexDirection: 'row',
   },
   heartIconContainer: {
-    padding: 12,
-    borderRadius: 10,
+    padding: 14,
+    borderRadius: 100,
   },
   adoptButtonContainer: {
     flexGrow: 1,
     backgroundColor: colors.primary,
-    padding: 10,
-    borderRadius: 10,
+    padding: 14,
+    borderRadius: 100,
     marginLeft: 10,
   },
 })

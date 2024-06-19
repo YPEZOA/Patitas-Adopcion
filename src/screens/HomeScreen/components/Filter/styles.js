@@ -30,7 +30,7 @@ export const filterStyles = StyleSheet.create({
   },
   typeText: {
     fontFamily: 'Quicksand-Bold',
-    fontSize: 13,
+    fontSize: 14,
     letterSpacing: -0.5,
   },
   option: {
@@ -39,9 +39,9 @@ export const filterStyles = StyleSheet.create({
     shadowColor: '#000',
     shadowOffset: {
       width: 1,
-      height: 2,
+      height: 1,
     },
-    shadowOpacity: 0.1,
+    shadowOpacity: 0.2,
     shadowRadius: 3,
     elevation: 5,
   },

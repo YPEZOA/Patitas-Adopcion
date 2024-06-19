@@ -23,10 +23,10 @@ const Filters = () => {
   }
 
   const colorIconSelected = (type: string) =>
-    states.animalTypeSelected === type ? colors.white : colors.secondary
+    states.animalTypeSelected === type ? colors.white : colors.neutralText
 
   const colorTextBySelectType = (type: string) =>
-    typeSelectedEqualTo(type) ? colors.primary : colors.secondary
+    typeSelectedEqualTo(type) ? colors.primary : colors.darkText
 
   const typeSelectedEqualTo = (type: string) => states.animalTypeSelected === type
 

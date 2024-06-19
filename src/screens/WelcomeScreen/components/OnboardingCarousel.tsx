@@ -8,23 +8,33 @@ import { carouselStyles as St } from './styles'
 import colors from '../../../UI/colors'
 import AdoptOnboarding from '../../../UI/Icons/AdoptOnboarding'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import Animated, { FadeInDown } from 'react-native-reanimated'
+import Animated, { FadeIn, FadeInDown, FadeInUp, FadeOut } from 'react-native-reanimated'
 import { useNavigation } from '@react-navigation/native'
 
 const OnboardingCarousel = () => {
   const [index, setIndex] = useState(0)
   const navigation = useNavigation()
-  const SLIDER_WIDTH = Dimensions.get('window').width + 10
+  const SLIDER_WIDTH = Dimensions.get('screen').width
   const ITEM_WIDTH = Math.round(SLIDER_WIDTH * 0.85)
   const carouselRef = useRef<any>(null)
   const data = [
     {
       body: (
         <View style={St.firstItemContainer}>
-          <Animated.View entering={FadeInDown.springify()}>
+          <Animated.View entering={FadeInDown}>
             <Logo />
           </Animated.View>
-          <Animated.View entering={FadeInDown.springify()}>
+          <Animated.View entering={FadeInDown}>
+            <Text
+              style={{
+                color: '#FFF',
+                fontSize: 18,
+                textAlign: 'center',
+                fontFamily: 'Quicksand-Bold',
+              }}
+            >
+              Adopción
+            </Text>
             <Text style={St.firstItemText}>Encuentra y adopta</Text>
           </Animated.View>
         </View>
@@ -42,7 +52,7 @@ const OnboardingCarousel = () => {
           <AdoptOnboarding />
           <Text style={St.secondItemText}>
             Esta aplicación se alimenta con datos reales desde la plataforma de
-            <Text style={{ fontWeight: '900' }}> Huachitos.cl</Text>
+            <Text style={{ fontWeight: '900' }}> huachitos.cl</Text>
           </Text>
           <TouchableOpacity style={St.nextButton} onPress={() => navigation.navigate('Home')}>
             <Text style={St.nextButtonText}>encuentra animales</Text>

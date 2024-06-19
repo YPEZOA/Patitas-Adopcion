@@ -40,7 +40,7 @@ const FiltersModal = () => {
         <View>
           <View style={St.headerContainer}>
             <View style={St.filterIconContainer}>
-              <IconF name="filter" size={20} color={colors.secondary} />
+              <IconF name="filter" size={20} color={colors.darkText} />
               <Text style={St.filterIconText}>Filtros</Text>
             </View>
             <Pressable onPress={() => onCloseModal()}>
@@ -112,7 +112,7 @@ const FiltersModal = () => {
                   )}
                 />
               ) : (
-                <Text style={{ color: colors.secondary }}>Debe seleccionar una región</Text>
+                <Text style={{ color: colors.darkText }}>Debe seleccionar una región</Text>
               )}
             </CollapsePanel>
           </View>

@@ -1,5 +1,6 @@
 import * as React from 'react'
 import Svg, { Defs, G, Path } from 'react-native-svg'
+
 const Logo = () => (
   <Svg xmlns="http://www.w3.org/2000/svg" width={293} height={249} fill="none">
     <G filter="url(#a)">

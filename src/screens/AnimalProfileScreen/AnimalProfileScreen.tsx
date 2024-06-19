@@ -12,6 +12,7 @@ import Animated, { FadeInDown } from 'react-native-reanimated'
 
 import { animalByLiked, likedAnimal, unlikedAnimal } from '../../utils/storage/storage'
 import http from '../../utils/helpers/http.helper'
+import LinearGradient from 'react-native-linear-gradient'
 
 const AnimalProfileScreen = ({ route, navigation }: ScreenRouteProps) => {
   const {
@@ -104,23 +105,27 @@ const AnimalProfileScreen = ({ route, navigation }: ScreenRouteProps) => {
 
         <Animated.View entering={FadeInDown.delay(200).springify()} style={St.actionsContainer}>
           <TouchableOpacity
+            onPress={() => handleLikeAnimal()}
             style={[
               St.heartIconContainer,
               { backgroundColor: animalIsLiked ? '#ee6352' : colors.primary },
             ]}
-            onPress={() => handleLikeAnimal()}
           >
             <IconF name="heart" color={colors.white} size={20} />
           </TouchableOpacity>
-          <TouchableOpacity
-            style={St.adoptButtonContainer}
-            onPress={() => http.gotoAdoptUrl(id, nombre)}
-          >
-            <Text
-              style={[St.defaultText, { textAlign: 'center', color: colors.white, fontSize: 18 }]}
+          <TouchableOpacity onPress={() => http.gotoAdoptUrl(id, nombre)} style={{ flexGrow: 1 }}>
+            <LinearGradient
+              start={{ x: 0, y: 0 }}
+              end={{ x: 2, y: 0 }}
+              colors={[colors.primary, colors.secondary]}
+              style={St.adoptButtonContainer}
             >
-              Adóptame
-            </Text>
+              <Text
+                style={[St.defaultText, { textAlign: 'center', color: colors.white, fontSize: 18 }]}
+              >
+                Adóptame
+              </Text>
+            </LinearGradient>
           </TouchableOpacity>
         </Animated.View>
       </View>

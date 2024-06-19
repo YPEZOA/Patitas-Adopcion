@@ -30,7 +30,7 @@ export const filtersModal = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Quicksand-Bold',
     textTransform: 'uppercase',
-    color: colors.secondary,
+    color: colors.darkText,
   },
 
   filterSubmitContainer: {
@@ -48,20 +48,20 @@ export const filtersModal = StyleSheet.create({
   stateFilterContainer: {
     marginVertical: 20,
   },
-  stateFilterTitle: { fontSize: 16, color: colors.secondary, fontFamily: 'Quicksand-Bold' },
+  stateFilterTitle: { fontSize: 16, color: colors.neutralText, fontFamily: 'Quicksand-Bold' },
   stateFilterOptions: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
   shadowOption: {
-    shadowColor: 'green',
+    shadowColor: colors.secondary,
     shadowOffset: {
       width: 2,
       height: 2,
     },
-    shadowOpacity: 0.8,
-    shadowRadius: 10,
+    shadowOpacity: 0.5,
+    shadowRadius: 5,
     elevation: 3,
   },
   option: {

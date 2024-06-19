@@ -61,7 +61,7 @@ export const carouselItemStyles = StyleSheet.create({
   itemContainer: {
     flex: 1,
     display: 'flex',
-    flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'center',
   },
 })

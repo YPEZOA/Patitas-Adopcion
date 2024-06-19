@@ -6,8 +6,8 @@ import { favoriteStyles as St } from './styles'
 import { AnimalLiked } from '../../utils/models'
 import { useNavigation } from '@react-navigation/native'
 import Icon from 'react-native-vector-icons/Feather'
+import IconF from 'react-native-vector-icons/FontAwesome'
 import colors from '../../UI/colors'
-import LogoBeta from '../../UI/Icons/LogoBeta'
 
 const AnimalsLikeScreen = () => {
   const [favorites, setFavorites] = useState([])
@@ -52,7 +52,7 @@ const AnimalsLikeScreen = () => {
           />
         ) : (
           <View style={St.withoutResultsContainer}>
-            <LogoBeta />
+            <IconF name="paw" size={100} color={colors.primary} />
             <Text style={St.withoutResultsText}>Guarda aquí los animales que te gusten!</Text>
           </View>
         )}

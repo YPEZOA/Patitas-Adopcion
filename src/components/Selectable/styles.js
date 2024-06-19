@@ -12,6 +12,6 @@ export const selectableStyles = StyleSheet.create({
   },
   itemText: {
     fontSize: 16,
-    color: colors.secondary,
+    color: colors.darkText,
   },
 })

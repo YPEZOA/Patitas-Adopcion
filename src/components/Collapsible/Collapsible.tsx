@@ -28,14 +28,14 @@ const CollapsePanel = ({ title, children }: CollapsiblePanelProps) => {
             style={[
               St.pressCollapsableHeaderText,
               {
-                color: !collapsed ? colors.white : colors.secondary,
+                color: !collapsed ? colors.white : colors.neutralText,
               },
             ]}
           >
             {title}
           </Text>
           {collapsed ? (
-            <IconF name="plus" size={20} color={colors.secondary} />
+            <IconF name="plus" size={20} color={colors.darkText} />
           ) : (
             <IconO
               name="horizontal-rule"
