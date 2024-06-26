@@ -67,13 +67,14 @@ export const animalStyles = StyleSheet.create({
     flexDirection: 'row',
   },
   heartIconContainer: {
-    padding: 14,
+    padding: 12,
     borderRadius: 100,
   },
   adoptButtonContainer: {
+    alignContent: 'middle',
     flexGrow: 1,
     backgroundColor: colors.primary,
-    padding: 14,
+    padding: 12,
     borderRadius: 100,
     marginLeft: 10,
   },

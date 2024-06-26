@@ -4,10 +4,11 @@ import { welcomeScreen as St } from './styles'
 
 import LinearGradient from 'react-native-linear-gradient'
 import OnboardingCarousel from './components/OnboardingCarousel'
+import colors from '../../UI/colors'
 
 const WelcomeScreen = () => {
   return (
-    <LinearGradient colors={['#F0B200', '#F37E29']} style={St.linear}>
+    <LinearGradient colors={[colors.primaryLight, colors.primary]} style={St.linear}>
       <View style={St.container}>
         <OnboardingCarousel />
       </View>

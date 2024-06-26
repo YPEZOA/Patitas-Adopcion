@@ -8,7 +8,7 @@ import { carouselStyles as St } from './styles'
 import colors from '../../../UI/colors'
 import AdoptOnboarding from '../../../UI/Icons/AdoptOnboarding'
 import Icon from 'react-native-vector-icons/FontAwesome'
-import Animated, { FadeIn, FadeInDown, FadeInUp, FadeOut } from 'react-native-reanimated'
+import Animated, { FadeInDown } from 'react-native-reanimated'
 import { useNavigation } from '@react-navigation/native'
 
 const OnboardingCarousel = () => {

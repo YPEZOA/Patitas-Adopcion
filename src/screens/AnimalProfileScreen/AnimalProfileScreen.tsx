@@ -121,7 +121,7 @@ const AnimalProfileScreen = ({ route, navigation }: ScreenRouteProps) => {
               style={St.adoptButtonContainer}
             >
               <Text
-                style={[St.defaultText, { textAlign: 'center', color: colors.white, fontSize: 18 }]}
+                style={[St.defaultText, { textAlign: 'center', color: colors.white, fontSize: 16 }]}
               >
                 Adóptame
               </Text>

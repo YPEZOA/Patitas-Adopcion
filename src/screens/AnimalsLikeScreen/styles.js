@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import { Platform, StyleSheet } from 'react-native'
 import colors from '../../UI/colors'
 
 export const favoriteStyles = StyleSheet.create({
@@ -16,7 +16,7 @@ export const favoriteStyles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 14,
-    marginTop: 70,
+    marginTop: Platform.OS === 'ios' ? 70 : 30,
   },
   iconBack: {
     backgroundColor: colors.white,

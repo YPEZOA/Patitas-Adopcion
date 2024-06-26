@@ -14,14 +14,14 @@ const useHome = () => {
   const fetchWrap = isFetching(setFetching)
 
   useEffect(() => {
-    // async function getAnimals() {
-    //   setFetching(true)
-    //   const animals = await getAllAnimals()
-    //   dataIsVisible(animals)
-    //   setAllAnimals(animals.data)
-    //   setFetching(false)
-    // }
-    // getAnimals()
+    async function getAnimals() {
+      setFetching(true)
+      const animals = await getAllAnimals()
+      dataIsVisible(animals)
+      setAllAnimals(animals.data)
+      setFetching(false)
+    }
+    getAnimals()
   }, [])
 
   const dataIsVisible = ({ data }: any) => {

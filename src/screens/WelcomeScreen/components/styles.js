@@ -1,5 +1,7 @@
-import { StyleSheet } from 'react-native'
+import { Dimensions, Platform, StyleSheet } from 'react-native'
 import colors from '../../../UI/colors'
+
+const ITEM_WIDTH = Dimensions.get('screen').width * 0.85
 
 export const carouselStyles = StyleSheet.create({
   container: {
@@ -11,7 +13,7 @@ export const carouselStyles = StyleSheet.create({
   nextButton: {
     backgroundColor: colors.secondary,
     borderRadius: 90,
-    paddingVertical: 25,
+    paddingVertical: 20,
     width: '100%',
   },
   nextButtonText: {
@@ -32,6 +34,7 @@ export const carouselStyles = StyleSheet.create({
     fontFamily: 'Quicksand-Regular',
   },
   secondItemContainer: {
+    width: Platform.OS === 'android' ? ITEM_WIDTH : '',
     flex: 1,
     display: 'flex',
     flexDirection: 'column',
@@ -42,16 +45,17 @@ export const carouselStyles = StyleSheet.create({
   secondItemContent: {
     flexDirection: 'column',
     alignItems: 'center',
+    justifyContent: 'space-between',
   },
   secondItemTitle: {
     textAlign: 'center',
     color: colors.white,
-    fontSize: 20,
+    fontSize: 18,
     fontFamily: 'Quicksand-Bold',
   },
   secondItemText: {
     color: colors.white,
-    fontSize: 22,
+    fontSize: 20,
     textAlign: 'center',
     fontFamily: 'Quicksand-Regular',
   },
@@ -60,8 +64,7 @@ export const carouselStyles = StyleSheet.create({
 export const carouselItemStyles = StyleSheet.create({
   itemContainer: {
     flex: 1,
-    display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
   },
 })

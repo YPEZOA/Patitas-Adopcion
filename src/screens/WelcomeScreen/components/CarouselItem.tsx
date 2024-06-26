@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
 import { carouselItemStyles as St } from './styles'
 
 interface ItemProps {
@@ -8,11 +8,7 @@ interface ItemProps {
 }
 
 const CarouselItem = ({ item }: ItemProps) => {
-  return (
-    <View style={St.itemContainer}>
-      <Text>{item.body}</Text>
-    </View>
-  )
+  return <View style={St.itemContainer}>{item.body}</View>
 }
 
 export default CarouselItem
