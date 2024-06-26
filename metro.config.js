@@ -9,7 +9,6 @@ const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config')
 const config = {
   projectRoot: './src/',
   stickyWorkers: true,
-  enableBabelRuntime: true,
 }
 
 module.exports = mergeConfig(getDefaultConfig(__dirname), config)
