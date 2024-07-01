@@ -1,4 +1,4 @@
-package com.huachitosapp
+package patitas.adopcion
 
 import android.app.Application
 import com.facebook.react.PackageList
