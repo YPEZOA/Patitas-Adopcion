@@ -66,7 +66,7 @@ const AnimalProfileScreen = ({ route, navigation }: ScreenRouteProps) => {
   return (
     <View style={St.container}>
       <TouchableOpacity onPress={() => navigation.goBack()} style={St.iconBack}>
-        <Icon name="arrow-left" size={25} color={colors.primary} />
+        <Icon name="arrow-left" size={35} color={colors.primary} />
       </TouchableOpacity>
       <Image source={{ uri: imagen }} style={St.image} />
       <View style={St.contentContainer}>
@@ -111,7 +111,7 @@ const AnimalProfileScreen = ({ route, navigation }: ScreenRouteProps) => {
               { backgroundColor: animalIsLiked ? '#ee6352' : colors.primary },
             ]}
           >
-            <IconF name="heart" color={colors.white} size={20} />
+            <IconF name="heart" color={colors.white} size={22} />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => http.gotoAdoptUrl(id, nombre)} style={{ flexGrow: 1 }}>
             <LinearGradient
@@ -120,10 +120,8 @@ const AnimalProfileScreen = ({ route, navigation }: ScreenRouteProps) => {
               colors={[colors.primary, colors.secondary]}
               style={St.adoptButtonContainer}
             >
-              <Text
-                style={[St.defaultText, { textAlign: 'center', color: colors.white, fontSize: 16 }]}
-              >
-                Adóptame
+              <Text style={{ textAlign: 'center', color: colors.white, fontSize: 18 }}>
+                ADÓPTAME
               </Text>
             </LinearGradient>
           </TouchableOpacity>

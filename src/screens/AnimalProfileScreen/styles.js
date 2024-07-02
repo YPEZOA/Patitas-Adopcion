@@ -34,7 +34,7 @@ export const animalStyles = StyleSheet.create({
     elevation: 7,
   },
   contentContainer: {
-    height: 420,
+    maxHeight: 450,
     backgroundColor: colors.white,
     paddingHorizontal: 30,
     paddingTop: 30,
@@ -47,7 +47,7 @@ export const animalStyles = StyleSheet.create({
     alignItems: 'center',
   },
   name: {
-    fontSize: 20,
+    fontSize: 22,
     fontFamily: 'Quicksand-Bold',
     color: colors.darkText,
     textTransform: 'capitalize',
@@ -59,7 +59,7 @@ export const animalStyles = StyleSheet.create({
   },
   locationContent: { marginTop: 20, flexDirection: 'row', alignItems: 'center' },
   descriptionsContainer: { flexDirection: 'column', gap: 10, marginTop: 20 },
-  descriptionsText: { color: colors.darkText, lineHeight: 18 },
+  descriptionsText: { color: colors.darkText, lineHeight: 18, fontSize: 16 },
   actionsContainer: {
     paddingTop: 10,
     paddingBottom: isIOS ? 25 : 10,
@@ -67,14 +67,14 @@ export const animalStyles = StyleSheet.create({
     flexDirection: 'row',
   },
   heartIconContainer: {
-    padding: 12,
+    padding: 14,
     borderRadius: 100,
   },
   adoptButtonContainer: {
     alignContent: 'middle',
     flexGrow: 1,
     backgroundColor: colors.primary,
-    padding: 12,
+    padding: 14,
     borderRadius: 100,
     marginLeft: 10,
   },

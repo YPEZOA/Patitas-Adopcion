@@ -32,7 +32,7 @@ const AnimalsLikeScreen = () => {
     <View style={St.containerMain}>
       <View style={St.headerContainer}>
         <TouchableOpacity onPress={() => navigation.goBack()} style={St.iconBack}>
-          <Icon name="arrow-left" size={25} color={colors.primary} />
+          <Icon name="arrow-left" size={35} color={colors.primary} />
         </TouchableOpacity>
         <Text style={St.headerTitle}>Tus favoritos</Text>
       </View>

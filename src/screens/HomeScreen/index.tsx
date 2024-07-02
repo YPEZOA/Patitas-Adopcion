@@ -22,32 +22,27 @@ const HomeScreen = () => {
       <View style={St.containerMain}>
         {/* Header */}
         <View style={St.headerContainer}>
-          <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-            <LogoWithoutText />
+          <View style={{ flexDirection: 'column', alignItems: 'center' }}>
+            <TouchableOpacity
+              accessibilityLabel="Abrir filtros"
+              testID="open-filters"
+              onPress={() => setters.setShowFiltersModal(true)}
+              style={St.closeIcon}
+            >
+              <IconF name="filter" size={40} color={colors.secondary} />
+            </TouchableOpacity>
+            <Text style={{ color: colors.white, fontSize: 14 }}>Filtrar</Text>
           </View>
-
-          <View style={St.headerButtonsContainer}>
-            <View style={{ flexDirection: 'column', alignItems: 'center' }}>
-              <TouchableOpacity
-                accessibilityLabel="Ir a favoritos"
-                onPress={() => navigation.navigate('AnimalsLikes')}
-                style={St.closeIcon}
-              >
-                <IconF name="heart" size={40} color={colors.secondary} />
-              </TouchableOpacity>
-              <Text style={{ color: colors.white, fontSize: 14 }}>Favoritos</Text>
-            </View>
-            <View style={{ flexDirection: 'column', alignItems: 'center' }}>
-              <TouchableOpacity
-                accessibilityLabel="Abrir filtros"
-                testID="open-filters"
-                onPress={() => setters.setShowFiltersModal(true)}
-                style={St.closeIcon}
-              >
-                <IconF name="filter" size={40} color={colors.secondary} />
-              </TouchableOpacity>
-              <Text style={{ color: colors.white, fontSize: 14 }}>Filtrar</Text>
-            </View>
+          <LogoWithoutText />
+          <View style={{ flexDirection: 'column', alignItems: 'center' }}>
+            <TouchableOpacity
+              accessibilityLabel="Ir a favoritos"
+              onPress={() => navigation.navigate('AnimalsLikes')}
+              style={St.closeIcon}
+            >
+              <IconF name="heart" size={40} color={colors.secondary} />
+            </TouchableOpacity>
+            <Text style={{ color: colors.white, fontSize: 14 }}>Favoritos</Text>
           </View>
         </View>
         {/* Animals list */}

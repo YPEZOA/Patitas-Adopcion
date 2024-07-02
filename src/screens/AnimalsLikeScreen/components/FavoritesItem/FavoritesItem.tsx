@@ -35,7 +35,7 @@ const FavoritesItem = ({ index, data, onHandleRemoveFavorite }: FavoriteProps) =
               {nombre} <Text style={{ color: 'gray', fontSize: 12 }}>{edad}</Text>
             </Text>
           </View>
-          <Icon name={genderIcon(genero)} color={genderColor(genero)} size={16} />
+          <Icon name={genderIcon(genero)} color={genderColor(genero)} size={20} />
         </View>
         <View style={St.bottomContent}>
           <View>
@@ -50,7 +50,7 @@ const FavoritesItem = ({ index, data, onHandleRemoveFavorite }: FavoriteProps) =
             </TouchableOpacity>
 
             <TouchableOpacity style={St.heartIcon} onPress={() => onHandleRemoveFavorite(id)}>
-              <IconF name="heart" color={colors.white} size={14} />
+              <IconF name="heart" color={colors.white} size={16} />
             </TouchableOpacity>
           </View>
         </View>

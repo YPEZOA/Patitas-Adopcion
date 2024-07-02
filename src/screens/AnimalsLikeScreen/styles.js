@@ -80,14 +80,14 @@ export const favoriteStyles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   state: {
-    color:colors.neutralText,
+    color: colors.neutralText,
     fontSize: 12,
   },
   location: {
     flex: 1,
     marginTop: 2,
     fontSize: 12,
-    color:colors.neutralText,
+    color: colors.neutralText,
   },
   heartIcon: {
     padding: 8,
@@ -106,6 +106,7 @@ export const favoriteStyles = StyleSheet.create({
     alignItems: 'center',
   },
   adoptButtonText: {
+    fontSize: 16,
     color: colors.white,
     textAlign: 'center',
   },
