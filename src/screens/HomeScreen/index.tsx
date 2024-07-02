@@ -10,6 +10,7 @@ import FiltersModal from './components/FiltersModal/FiltersModal'
 import FilterResult from './components/FilterResult/FilterResult'
 import { useNavigation } from '@react-navigation/native'
 import colors from '../../UI/colors'
+import LogoWithoutText from '../../UI/Icons/LogoWithoutText'
 
 const HomeScreen = () => {
   const { states, actions, setters } = useHome()
@@ -22,50 +23,31 @@ const HomeScreen = () => {
         {/* Header */}
         <View style={St.headerContainer}>
           <View style={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
-            <IconF
-              name="paw"
-              size={50}
-              color={colors.secondary}
-              style={{ transform: [{ rotate: '-30deg' }] }}
-            />
-            <View style={{ alignItems: 'center' }}>
-              <Text
-                style={{
-                  color: colors.white,
-                  fontSize: 24,
-                  fontFamily: 'Quicksand-Bold',
-                }}
-              >
-                Patitas
-              </Text>
-              <Text
-                style={{
-                  color: colors.white,
-                  fontSize: 14,
-                  fontFamily: 'Quicksand-Bold',
-                }}
-              >
-                Adopción
-              </Text>
-            </View>
+            <LogoWithoutText />
           </View>
 
           <View style={St.headerButtonsContainer}>
-            <TouchableOpacity
-              accessibilityLabel="Ir a favoritos"
-              onPress={() => navigation.navigate('AnimalsLikes')}
-              style={St.closeIcon}
-            >
-              <IconF name="heart" size={30} color={colors.secondary} />
-            </TouchableOpacity>
-            <TouchableOpacity
-              accessibilityLabel="Abrir filtros"
-              testID="open-filters"
-              onPress={() => setters.setShowFiltersModal(true)}
-              style={St.closeIcon}
-            >
-              <IconF name="filter" size={30} color={colors.secondary} />
-            </TouchableOpacity>
+            <View style={{ flexDirection: 'column', alignItems: 'center' }}>
+              <TouchableOpacity
+                accessibilityLabel="Ir a favoritos"
+                onPress={() => navigation.navigate('AnimalsLikes')}
+                style={St.closeIcon}
+              >
+                <IconF name="heart" size={40} color={colors.secondary} />
+              </TouchableOpacity>
+              <Text style={{ color: colors.white, fontSize: 14 }}>Favoritos</Text>
+            </View>
+            <View style={{ flexDirection: 'column', alignItems: 'center' }}>
+              <TouchableOpacity
+                accessibilityLabel="Abrir filtros"
+                testID="open-filters"
+                onPress={() => setters.setShowFiltersModal(true)}
+                style={St.closeIcon}
+              >
+                <IconF name="filter" size={40} color={colors.secondary} />
+              </TouchableOpacity>
+              <Text style={{ color: colors.white, fontSize: 14 }}>Filtrar</Text>
+            </View>
           </View>
         </View>
         {/* Animals list */}

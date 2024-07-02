@@ -21,17 +21,25 @@ export const carouselStyles = StyleSheet.create({
     fontSize: 16,
     textTransform: 'uppercase',
     textAlign: 'center',
-    fontWeight: '500',
   },
   firstItemContainer: {
     flex: 1,
     justifyContent: 'center',
+    alignItems: 'center',
   },
   firstItemText: {
     color: colors.white,
     fontSize: 22,
     textAlign: 'center',
     fontFamily: 'Quicksand-Regular',
+  },
+  adoptionText: {
+    color: '#FFF',
+    fontSize: 32,
+    textAlign: 'center',
+    fontFamily: 'Quicksand-Bold',
+    textTransform: 'uppercase',
+    letterSpacing: 18,
   },
   secondItemContainer: {
     width: Platform.OS === 'android' ? ITEM_WIDTH : '',
@@ -50,12 +58,12 @@ export const carouselStyles = StyleSheet.create({
   secondItemTitle: {
     textAlign: 'center',
     color: colors.white,
-    fontSize: 18,
+    fontSize: 22,
     fontFamily: 'Quicksand-Bold',
   },
   secondItemText: {
     color: colors.white,
-    fontSize: 20,
+    fontSize: 22,
     textAlign: 'center',
     fontFamily: 'Quicksand-Regular',
   },

@@ -21,20 +21,11 @@ const OnboardingCarousel = () => {
     {
       body: (
         <View style={St.firstItemContainer}>
-          <Animated.View entering={FadeInDown}>
+          <Animated.View entering={FadeInDown.damping(20).delay(100).duration(300)}>
             <Logo />
           </Animated.View>
-          <Animated.View entering={FadeInDown}>
-            <Text
-              style={{
-                color: '#FFF',
-                fontSize: 18,
-                textAlign: 'center',
-                fontFamily: 'Quicksand-Bold',
-              }}
-            >
-              Adopción
-            </Text>
+          <Animated.View entering={FadeInDown.damping(20).delay(300).duration(300)}>
+            <Text style={St.adoptionText}>Adopción</Text>
             <Text style={St.firstItemText}>Encuentra y adopta</Text>
           </Animated.View>
         </View>
