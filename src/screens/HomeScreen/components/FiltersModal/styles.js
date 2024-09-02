@@ -8,7 +8,7 @@ export const filtersModal = StyleSheet.create({
     position: 'absolute',
     bottom: 0,
     width: '100%',
-    minHeight: 440,
+    minHeight: 540,
     paddingHorizontal: 30,
     borderTopLeftRadius: 40,
     borderTopRightRadius: 40,

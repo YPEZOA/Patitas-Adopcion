@@ -29,9 +29,9 @@ const HomeScreen = () => {
               onPress={() => setters.setShowFiltersModal(true)}
               style={St.closeIcon}
             >
-              <IconF name="filter" size={40} color={colors.secondary} />
+              <IconF name="filter" size={36} color={colors.secondary} />
             </TouchableOpacity>
-            <Text style={{ color: colors.white, fontSize: 14 }}>Filtrar</Text>
+            <Text style={{ color: colors.white, fontSize: 16 }}>Filtrar</Text>
           </View>
           <LogoWithoutText />
           <View style={{ flexDirection: 'column', alignItems: 'center' }}>
@@ -40,9 +40,9 @@ const HomeScreen = () => {
               onPress={() => navigation.navigate('AnimalsLikes')}
               style={St.closeIcon}
             >
-              <IconF name="heart" size={40} color={colors.secondary} />
+              <IconF name="heart" size={36} color={colors.secondary} />
             </TouchableOpacity>
-            <Text style={{ color: colors.white, fontSize: 14 }}>Favoritos</Text>
+            <Text style={{ color: colors.white, fontSize: 16 }}>Favoritos</Text>
           </View>
         </View>
         {/* Animals list */}

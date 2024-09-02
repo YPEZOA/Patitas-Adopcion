@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { View, Text, TouchableOpacity, Pressable, FlatList } from 'react-native'
 import ReactNativeModal from 'react-native-modal'
-import CollapsePanel from '../../../../components/Collapsible/Collapsible'
+import CollapsePanel from '../../../../components/Collapsible/CollapsePanel'
 import Selectable from '../../../../components/Selectable/Selectable'
 import IconF from 'react-native-vector-icons/Feather'
 import IconI from 'react-native-vector-icons/Ionicons'
@@ -27,11 +27,12 @@ const FiltersModal = () => {
 
   const onCloseModal = () => {
     setters.setShowFiltersModal(false)
+    filterActions.resetFilter()
   }
 
   const onHandleSubmit = () => {
     filterActions.getAnimalsByFiltered()
-    setters.setShowFiltersModal(false)
+    filterActions.resetFilter()
   }
 
   return (
@@ -86,10 +87,14 @@ const FiltersModal = () => {
           </View>
           {/* Animals filter by region and comuna */}
           <View>
-            <CollapsePanel title="Región">
+            <CollapsePanel title="Región" isSelectedOption={filterStates.isRegionSelected}>
               <Selectable data={regions} onHandleSelection={onHandleSelectionItem} />
             </CollapsePanel>
-            <CollapsePanel title="Comuna">
+            <CollapsePanel
+              title="Comuna"
+              isSelectedOption={filterStates.isCommuneSelected}
+              disabled={!filterStates.isRegionSelected}
+            >
               {filterStates.getAvailableCommunes?.length ? (
                 <FlatList
                   data={filterStates.getAvailableCommunes}
@@ -116,6 +121,16 @@ const FiltersModal = () => {
               )}
             </CollapsePanel>
           </View>
+          {filterStates.isRegionSelected && (
+            <View style={{ marginTop: 20 }}>
+              <Text style={{ fontSize: 16, fontWeight: 700, color: colors.primary }}>
+                Ubicación:
+              </Text>
+              <Text style={{ color: colors.darkText }}>
+                {filterStates.filterParameters.region.region}
+              </Text>
+            </View>
+          )}
         </View>
         {/* Submit filter button */}
         <TouchableOpacity
