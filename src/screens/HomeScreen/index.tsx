@@ -33,7 +33,10 @@ const HomeScreen = () => {
             </TouchableOpacity>
             <Text style={{ color: colors.white, fontSize: 16 }}>Filtrar</Text>
           </View>
-          <LogoWithoutText />
+          <View style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <LogoWithoutText />
+            <Text style={{ color: colors.white, fontWeight: 900 }}>Patitas Adopción</Text>
+          </View>
           <View style={{ flexDirection: 'column', alignItems: 'center' }}>
             <TouchableOpacity
               accessibilityLabel="Ir a favoritos"
