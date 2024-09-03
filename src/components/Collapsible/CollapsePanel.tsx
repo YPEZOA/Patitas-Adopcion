@@ -1,18 +1,25 @@
 import { View, Text, Pressable } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { collapsible as St } from './styles'
 import IconF from 'react-native-vector-icons/Feather'
 import IconO from 'react-native-vector-icons/Octicons'
 import colors from '../../UI/colors'
-import Collapsible from 'react-native-collapsible'
 import { CollapsiblePanelProps } from '../../utils/models'
+import Collapsible from 'react-native-collapsible'
 
-const CollapsePanel = ({ title, children }: CollapsiblePanelProps) => {
+const CollapsePanel = ({ title, isSelectedOption, disabled, children }: CollapsiblePanelProps) => {
   const [collapsed, setCollapsed] = useState(true)
+
+  useEffect(() => {
+    if (isSelectedOption) {
+      setCollapsed(true)
+    }
+  }, [isSelectedOption])
 
   return (
     <View>
       <Pressable
+        disabled={disabled}
         style={[
           St.pressCollapsable,
           {
@@ -20,7 +27,6 @@ const CollapsePanel = ({ title, children }: CollapsiblePanelProps) => {
             borderBottomWidth: collapsed ? 1 : 0,
           },
         ]}
-        onBlur={() => setCollapsed(!collapsed)}
         onPress={() => setCollapsed(!collapsed)}
       >
         <View style={[St.pressCollapsableHeader, { paddingHorizontal: !collapsed ? 10 : 0 }]}>

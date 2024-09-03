@@ -45,7 +45,7 @@ export const homeScreen = StyleSheet.create({
   },
   closeIcon: {
     backgroundColor: colors.white,
-    borderRadius: 18,
+    borderRadius: 15,
     padding: 8,
   },
 })

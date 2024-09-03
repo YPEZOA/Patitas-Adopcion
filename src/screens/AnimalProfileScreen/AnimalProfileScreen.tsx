@@ -121,7 +121,7 @@ const AnimalProfileScreen = ({ route, navigation }: ScreenRouteProps) => {
               style={St.adoptButtonContainer}
             >
               <Text style={{ textAlign: 'center', color: colors.white, fontSize: 18 }}>
-                ADÓPTAME
+                Adóptame
               </Text>
             </LinearGradient>
           </TouchableOpacity>

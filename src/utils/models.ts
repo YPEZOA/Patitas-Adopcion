@@ -29,6 +29,8 @@ export interface LogoProps {
 export interface CollapsiblePanelProps {
   title: string
   children: React.ReactNode
+  isSelectedOption: boolean
+  disabled?: boolean
 }
 
 export interface AnimalLiked {

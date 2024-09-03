@@ -19,7 +19,7 @@ export const collapsible = StyleSheet.create({
     fontSize: 16,
   },
   collapsible: {
-    maxHeight: 140,
+    maxHeight: 220,
     backgroundColor: '#F4F4F4',
     paddingVertical: 5,
     paddingHorizontal: 10,

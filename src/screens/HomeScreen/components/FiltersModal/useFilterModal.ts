@@ -30,6 +30,12 @@ const useFiltersModal = () => {
       get anyFilterSelected() {
         return filterParameters !== initialState
       },
+      get isRegionSelected() {
+        return filterParameters.region.id !== null
+      },
+      get isCommuneSelected() {
+        return filterParameters.comuna !== null
+      },
     },
     filterSetters: {
       setFilterParameters,
@@ -69,8 +75,8 @@ const useFiltersModal = () => {
           setters.setAnimalsFiltered(animalsFilteredBySelection.data)
           setters.setFilterSubmited(true)
           actions.dataIsVisible(animalsFilteredBySelection)
-          setFilterParameters(initialState)
         }
+        setters.setShowFiltersModal(false)
       }),
     },
   }

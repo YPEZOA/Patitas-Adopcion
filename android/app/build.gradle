@@ -94,8 +94,8 @@ android {
         release {
                 storeFile file('my-upload-key.keystore')
                 keyAlias 'my-key-alias'
-                storePassword 'paulino346'
-                keyPassword 'paulino346'
+                storePassword 'hh9m3m34'
+                keyPassword 'hh9m3m34'
         }
     }
     buildTypes {
