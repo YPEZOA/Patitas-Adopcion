@@ -24,6 +24,7 @@ export const filterStyles = StyleSheet.create({
   typeOptionsContent: {
     padding: 5,
     display: 'flex',
+    justifyContent: 'space-between',
     flexDirection: 'row',
     alignItems: 'center',
     gap: 24,
